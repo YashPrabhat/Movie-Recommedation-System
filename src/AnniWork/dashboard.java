@@ -23,7 +23,7 @@ public class dashboard extends javax.swing.JFrame {
         jLabel_heading = new javax.swing.JLabel();
         jLabel_fire = new javax.swing.JLabel();
         jButton_leftArrow = new javax.swing.JButton();
-        jButton_leftArrow1 = new javax.swing.JButton();
+        jButton_rightArrow = new javax.swing.JButton();
         jButton_Profile = new javax.swing.JButton();
         jButton_Watchlist = new javax.swing.JButton();
         jButton_NewRec = new javax.swing.JButton();
@@ -44,7 +44,7 @@ public class dashboard extends javax.swing.JFrame {
         Dashboard.setForeground(new java.awt.Color(204, 204, 204));
         Dashboard.setText("DAshboard");
 
-        jLabel1_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/dashboard.png"))); // NOI18N
+        jLabel1_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dashboard.png"))); // NOI18N
         jLabel1_menu.setText("jLabel1");
 
         javax.swing.GroupLayout HeaderLayout = new javax.swing.GroupLayout(Header);
@@ -73,11 +73,11 @@ public class dashboard extends javax.swing.JFrame {
         jLabel_heading.setForeground(new java.awt.Color(255, 255, 153));
         jLabel_heading.setText("MUST WATCH !");
 
-        jLabel_fire.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/flames.png"))); // NOI18N
+        jLabel_fire.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flames.png"))); // NOI18N
 
         jButton_leftArrow.setBackground(new java.awt.Color(0, 0, 0));
         jButton_leftArrow.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_leftArrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/left_arrow.png"))); // NOI18N
+        jButton_leftArrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left_arrow.png"))); // NOI18N
         jButton_leftArrow.setBorder(null);
         jButton_leftArrow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,13 +85,13 @@ public class dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton_leftArrow1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton_leftArrow1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_leftArrow1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/right_arrow.png"))); // NOI18N
-        jButton_leftArrow1.setBorder(null);
-        jButton_leftArrow1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_rightArrow.setBackground(new java.awt.Color(0, 0, 0));
+        jButton_rightArrow.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_rightArrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/right_arrow.png"))); // NOI18N
+        jButton_rightArrow.setBorder(null);
+        jButton_rightArrow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_leftArrow1ActionPerformed(evt);
+                jButton_rightArrowActionPerformed(evt);
             }
         });
 
@@ -108,28 +108,26 @@ public class dashboard extends javax.swing.JFrame {
             .addGroup(MenuLayout.createSequentialGroup()
                 .addComponent(jButton_leftArrow, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_leftArrow1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButton_rightArrow, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(jLabel_fire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(2, 2, 2))
-                    .addComponent(jLabel_heading, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(90, 90, 90)
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_heading)
+                    .addComponent(jLabel_fire))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton_leftArrow)
-                    .addComponent(jButton_leftArrow1))
+                    .addComponent(jButton_rightArrow))
                 .addGap(209, 209, 209))
         );
 
         jButton_Profile.setBackground(new java.awt.Color(0, 0, 0));
         jButton_Profile.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jButton_Profile.setForeground(new java.awt.Color(204, 204, 204));
-        jButton_Profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/profile.png"))); // NOI18N
+        jButton_Profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile.png"))); // NOI18N
         jButton_Profile.setText("   Your Profile");
         jButton_Profile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton_Profile.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +139,7 @@ public class dashboard extends javax.swing.JFrame {
         jButton_Watchlist.setBackground(new java.awt.Color(0, 0, 0));
         jButton_Watchlist.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jButton_Watchlist.setForeground(new java.awt.Color(204, 204, 204));
-        jButton_Watchlist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/watchlist.png"))); // NOI18N
+        jButton_Watchlist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/watchlist.png"))); // NOI18N
         jButton_Watchlist.setText("    Watchlist");
         jButton_Watchlist.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton_Watchlist.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +151,7 @@ public class dashboard extends javax.swing.JFrame {
         jButton_NewRec.setBackground(new java.awt.Color(0, 0, 0));
         jButton_NewRec.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jButton_NewRec.setForeground(new java.awt.Color(204, 204, 204));
-        jButton_NewRec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/new.png"))); // NOI18N
+        jButton_NewRec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/new.png"))); // NOI18N
         jButton_NewRec.setText("Recommendation");
         jButton_NewRec.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton_NewRec.addActionListener(new java.awt.event.ActionListener() {
@@ -165,21 +163,21 @@ public class dashboard extends javax.swing.JFrame {
         jButton_Gems.setBackground(new java.awt.Color(0, 0, 0));
         jButton_Gems.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jButton_Gems.setForeground(new java.awt.Color(204, 204, 204));
-        jButton_Gems.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/gemstone.png"))); // NOI18N
+        jButton_Gems.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gemstone.png"))); // NOI18N
         jButton_Gems.setText("   Hidden Gems");
         jButton_Gems.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton_TopImdb.setBackground(new java.awt.Color(0, 0, 0));
         jButton_TopImdb.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jButton_TopImdb.setForeground(new java.awt.Color(204, 204, 204));
-        jButton_TopImdb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/top_imdb.png"))); // NOI18N
+        jButton_TopImdb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/top_imdb.png"))); // NOI18N
         jButton_TopImdb.setText("  Top IMDB");
         jButton_TopImdb.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton_Rate.setBackground(new java.awt.Color(0, 0, 0));
         jButton_Rate.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
         jButton_Rate.setForeground(new java.awt.Color(204, 204, 204));
-        jButton_Rate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/satisfaction.png"))); // NOI18N
+        jButton_Rate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/satisfaction.png"))); // NOI18N
         jButton_Rate.setText("  Ratings & Reviews");
         jButton_Rate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -254,9 +252,9 @@ public class dashboard extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton_leftArrowActionPerformed
 
-    private void jButton_leftArrow1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_leftArrow1ActionPerformed
+    private void jButton_rightArrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_rightArrowActionPerformed
       
-    }//GEN-LAST:event_jButton_leftArrow1ActionPerformed
+    }//GEN-LAST:event_jButton_rightArrowActionPerformed
 
 
     public static void main(String args[]) {
@@ -300,7 +298,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton_TopImdb;
     private javax.swing.JButton jButton_Watchlist;
     private javax.swing.JButton jButton_leftArrow;
-    private javax.swing.JButton jButton_leftArrow1;
+    private javax.swing.JButton jButton_rightArrow;
     private javax.swing.JLabel jLabel1_menu;
     private javax.swing.JLabel jLabel_fire;
     private javax.swing.JLabel jLabel_heading;

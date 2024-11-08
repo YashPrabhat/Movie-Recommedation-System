@@ -63,16 +63,16 @@ public class WelcomePage extends javax.swing.JFrame {
                 GetStartedActionPerformed(evt);
             }
         });
-        getContentPane().add(GetStarted, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 230, 50));
+        getContentPane().add(GetStarted, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 230, 50));
 
         TagLine.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         TagLine.setForeground(new java.awt.Color(255, 255, 255));
         TagLine.setText("Let us guide you to your next favorite story on screen.");
         getContentPane().add(TagLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 660, 30));
 
-        jLabel1.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Stencil", 0, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel1.setText("1000+                        500+                          10+  ");
+        jLabel1.setText("1000+                            500+                               10+  ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 940, 30));
 
         jLabel2.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
@@ -80,7 +80,7 @@ public class WelcomePage extends javax.swing.JFrame {
         jLabel2.setText("MOVIES                    ACTORS                   GENRES");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 800, -1));
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/background.jpg"))); // NOI18N
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background.jpg"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

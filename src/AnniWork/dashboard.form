@@ -140,7 +140,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1_menu">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/bg/dashboard.png"/>
+                  <Image iconType="3" name="/images/dashboard.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
@@ -167,7 +167,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jButton_leftArrow" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton_leftArrow1" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="jButton_rightArrow" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -175,17 +175,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel_fire" max="32767" attributes="0"/>
-                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jLabel_heading" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel_heading" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_fire" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jButton_leftArrow" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton_leftArrow1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton_rightArrow" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
                   </Group>
@@ -207,7 +204,7 @@
             <Component class="javax.swing.JLabel" name="jLabel_fire">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/bg/flames.png"/>
+                  <Image iconType="3" name="/images/flames.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -220,7 +217,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/bg/left_arrow.png"/>
+                  <Image iconType="3" name="/images/left_arrow.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -230,7 +227,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_leftArrowActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton_leftArrow1">
+            <Component class="javax.swing.JButton" name="jButton_rightArrow">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -239,14 +236,14 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/bg/right_arrow.png"/>
+                  <Image iconType="3" name="/images/right_arrow.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_leftArrow1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_rightArrowActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -263,7 +260,7 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/bg/profile.png"/>
+              <Image iconType="3" name="/images/profile.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="   Your Profile"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -288,7 +285,7 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/bg/watchlist.png"/>
+              <Image iconType="3" name="/images/watchlist.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="    Watchlist"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -313,7 +310,7 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/bg/new.png"/>
+              <Image iconType="3" name="/images/new.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Recommendation"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -338,7 +335,7 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/bg/gemstone.png"/>
+              <Image iconType="3" name="/images/gemstone.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="   Hidden Gems"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -360,7 +357,7 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/bg/top_imdb.png"/>
+              <Image iconType="3" name="/images/top_imdb.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="  Top IMDB"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -382,7 +379,7 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/bg/satisfaction.png"/>
+              <Image iconType="3" name="/images/satisfaction.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="  Ratings &amp; Reviews"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

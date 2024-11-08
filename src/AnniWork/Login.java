@@ -36,7 +36,7 @@ public class Login extends javax.swing.JFrame {
 
         LEFT.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/login_image.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login_image.png"))); // NOI18N
 
         javax.swing.GroupLayout LEFTLayout = new javax.swing.GroupLayout(LEFT);
         LEFT.setLayout(LEFTLayout);
