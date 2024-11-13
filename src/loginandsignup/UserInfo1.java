@@ -50,9 +50,9 @@ public class UserInfo1 extends javax.swing.JFrame {
         SidePanel = new javax.swing.JPanel();
         UserIcon = new javax.swing.JLabel();
         HeyUserLabel = new javax.swing.JLabel();
-        EditLabel = new javax.swing.JLabel();
-        ChangePassLabel = new javax.swing.JLabel();
-        ExitLabel = new javax.swing.JLabel();
+        EditButton = new javax.swing.JButton();
+        ChangeButton = new javax.swing.JButton();
+        ExitButton = new javax.swing.JButton();
         EditPanel = new javax.swing.JPanel();
         EditNameLabel = new javax.swing.JLabel();
         EditMailLabel = new javax.swing.JLabel();
@@ -150,57 +150,63 @@ public class UserInfo1 extends javax.swing.JFrame {
 
         SidePanel.setBackground(new java.awt.Color(102, 102, 102));
 
-        UserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/voice_13125512 (2).png"))); // NOI18N
+        UserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg/voice_13125512 (2).png"))); // NOI18N
 
         HeyUserLabel.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         HeyUserLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         HeyUserLabel.setText("HEY USER !!!");
         HeyUserLabel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 102, 0)));
 
-        EditLabel.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        EditLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EditLabel.setText("EDIT PROFILE");
-        EditLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0), 3));
-        EditLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EditLabelMouseClicked(evt);
+        EditButton.setBackground(new java.awt.Color(102, 102, 102));
+        EditButton.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        EditButton.setText("EDIT PROFILE");
+        EditButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51), 3));
+        EditButton.setPreferredSize(new java.awt.Dimension(96, 25));
+        EditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditButtonActionPerformed(evt);
             }
         });
 
-        ChangePassLabel.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        ChangePassLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ChangePassLabel.setText("CHANGE PASSWORD");
-        ChangePassLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0), 3));
-        ChangePassLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ChangePassLabelMouseClicked(evt);
+        ChangeButton.setBackground(new java.awt.Color(102, 102, 102));
+        ChangeButton.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        ChangeButton.setText("CHANGE PASSWORD");
+        ChangeButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 102, 0), 3));
+        ChangeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChangeButtonActionPerformed(evt);
             }
         });
 
-        ExitLabel.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        ExitLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ExitLabel.setText("EXIT");
-        ExitLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0), 3));
+        ExitButton.setBackground(new java.awt.Color(102, 102, 102));
+        ExitButton.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        ExitButton.setText("EXIT");
+        ExitButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 102, 0), 3));
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
         SidePanelLayout.setHorizontalGroup(
             SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidePanelLayout.createSequentialGroup()
-                .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ExitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ChangePassLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(SidePanelLayout.createSequentialGroup()
-                            .addGap(100, 100, 100)
-                            .addComponent(HeyUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(SidePanelLayout.createSequentialGroup()
-                            .addGap(94, 94, 94)
-                            .addComponent(UserIcon))
-                        .addGroup(SidePanelLayout.createSequentialGroup()
-                            .addGap(73, 73, 73)
-                            .addComponent(EditLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SidePanelLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(SidePanelLayout.createSequentialGroup()
+                                .addComponent(HeyUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25))
+                            .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ChangeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(EditButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(SidePanelLayout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(UserIcon)))
+                .addGap(85, 85, 85))
         );
         SidePanelLayout.setVerticalGroup(
             SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,13 +215,13 @@ public class UserInfo1 extends javax.swing.JFrame {
                 .addComponent(UserIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(HeyUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addComponent(EditLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(ChangePassLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83)
-                .addComponent(ExitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(101, 101, 101)
+                .addComponent(EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(ChangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
 
         getContentPane().add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 650));
@@ -401,29 +407,6 @@ public class UserInfo1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BackButtonActionPerformed
 
-    private void EditLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditLabelMouseClicked
-        // TODO add your handling code here:
-        UserInfoPanel.setVisible(false);
-        ChangePassPanel.setVisible(false);
-        EditPanel.setVisible(true);
-        EditMailtxt.setVisible(true);
-        EditNametxt.setVisible(true);
-        EditNumtxt.setVisible(true);
-        EditBackButton.setVisible(true);
-        EditProfileButton.setVisible(true);
-    }//GEN-LAST:event_EditLabelMouseClicked
-
-    private void ChangePassLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChangePassLabelMouseClicked
-        // TODO add your handling code here:
-        UserInfoPanel.setVisible(false);
-        ChangePassPanel.setVisible(true);
-        EditPanel.setVisible(false);
-        ConfirmPassword.setVisible(true);
-        NewPassword.setVisible(true);
-        ChangePass_Button.setVisible(true);
-        BackButton.setVisible(true);
-    }//GEN-LAST:event_ChangePassLabelMouseClicked
-
     private void EditBackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBackButtonMouseClicked
         // TODO add your handling code here:
         UserInfoPanel.setVisible(true);
@@ -437,6 +420,34 @@ public class UserInfo1 extends javax.swing.JFrame {
         ChangePassPanel.setVisible(false);
         EditPanel.setVisible(false);
     }//GEN-LAST:event_BackButtonMouseClicked
+
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
+
+        // TODO add your handling code here:
+        UserInfoPanel.setVisible(false);
+        ChangePassPanel.setVisible(false);
+        EditPanel.setVisible(true);
+        EditMailtxt.setVisible(true);
+        EditNametxt.setVisible(true);
+        EditNumtxt.setVisible(true);
+        EditBackButton.setVisible(true);
+        EditProfileButton.setVisible(true);
+    }//GEN-LAST:event_EditButtonActionPerformed
+
+    private void ChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangeButtonActionPerformed
+        // TODO add your handling code here:
+        UserInfoPanel.setVisible(false);
+        ChangePassPanel.setVisible(true);
+        EditPanel.setVisible(false);
+        ConfirmPassword.setVisible(true);
+        NewPassword.setVisible(true);
+        ChangePass_Button.setVisible(true);
+        BackButton.setVisible(true);
+    }//GEN-LAST:event_ChangeButtonActionPerformed
+
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -478,14 +489,14 @@ public class UserInfo1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
-    private javax.swing.JLabel ChangePassLabel;
+    private javax.swing.JButton ChangeButton;
     private javax.swing.JPanel ChangePassPanel;
     private javax.swing.JButton ChangePass_Button;
     private javax.swing.JLabel ChangePasswordLabel;
     private javax.swing.JLabel ConfirmLabel;
     private javax.swing.JPasswordField ConfirmPassword;
     private javax.swing.JButton EditBackButton;
-    private javax.swing.JLabel EditLabel;
+    private javax.swing.JButton EditButton;
     private javax.swing.JLabel EditMailLabel;
     private javax.swing.JTextField EditMailtxt;
     private javax.swing.JLabel EditNameLabel;
@@ -494,7 +505,7 @@ public class UserInfo1 extends javax.swing.JFrame {
     private javax.swing.JTextField EditNumtxt;
     private javax.swing.JPanel EditPanel;
     private javax.swing.JButton EditProfileButton;
-    private javax.swing.JLabel ExitLabel;
+    private javax.swing.JButton ExitButton;
     private javax.swing.JLabel HeyUserLabel;
     private javax.swing.JLabel MailLabel;
     private javax.swing.JTextField Mailtxt;
