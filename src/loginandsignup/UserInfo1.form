@@ -211,8 +211,8 @@
                   <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                   <Component id="ChangeButton" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace pref="73" max="32767" attributes="0"/>
-                  <Component id="ExitButton" min="-2" pref="46" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="ExitButton" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
