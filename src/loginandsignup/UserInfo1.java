@@ -8,12 +8,14 @@ package loginandsignup;
  *
  * @author alokk
  */
-public class UserInfo extends javax.swing.JFrame {
+public class UserInfo1 extends javax.swing.JFrame {
 
     /**
-     * Creates new form UserInfo
+     * Creates new form UserIcon
      */
-    public UserInfo() {
+    
+    
+    public UserInfo1() {
         initComponents();
         EditMailtxt.setVisible(false);
         EditNametxt.setVisible(false);
@@ -45,20 +47,12 @@ public class UserInfo extends javax.swing.JFrame {
         Nametxt = new javax.swing.JTextField();
         Numtxt = new javax.swing.JTextField();
         Mailtxt = new javax.swing.JTextField();
-        ChangePassPanel = new javax.swing.JPanel();
-        ChangePasswordLabel = new javax.swing.JLabel();
-        ConfirmLabel = new javax.swing.JLabel();
-        ChangePass_Button = new javax.swing.JButton();
-        BackButton = new javax.swing.JButton();
-        NewPassword = new javax.swing.JPasswordField();
-        ConfirmPassword = new javax.swing.JPasswordField();
         SidePanel = new javax.swing.JPanel();
+        UserIcon = new javax.swing.JLabel();
         HeyUserLabel = new javax.swing.JLabel();
         EditLabel = new javax.swing.JLabel();
         ChangePassLabel = new javax.swing.JLabel();
         ExitLabel = new javax.swing.JLabel();
-        UserIcon1 = new javax.swing.JLabel();
-        UserIcon = new javax.swing.JLabel();
         EditPanel = new javax.swing.JPanel();
         EditNameLabel = new javax.swing.JLabel();
         EditMailLabel = new javax.swing.JLabel();
@@ -68,9 +62,16 @@ public class UserInfo extends javax.swing.JFrame {
         EditNametxt = new javax.swing.JTextField();
         EditMailtxt = new javax.swing.JTextField();
         EditNumtxt = new javax.swing.JTextField();
+        ChangePassPanel = new javax.swing.JPanel();
+        ChangePasswordLabel = new javax.swing.JLabel();
+        ConfirmLabel = new javax.swing.JLabel();
+        ChangePass_Button = new javax.swing.JButton();
+        BackButton = new javax.swing.JButton();
+        NewPassword = new javax.swing.JPasswordField();
+        ConfirmPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1100, 650));
+        setTitle("User Info");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UserInfoPanel.setBackground(new java.awt.Color(204, 204, 204));
@@ -105,26 +106,25 @@ public class UserInfo extends javax.swing.JFrame {
         UserInfoPanelLayout.setHorizontalGroup(
             UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UserInfoPanelLayout.createSequentialGroup()
+                .addGap(85, 85, 85)
                 .addGroup(UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(UserInfoPanelLayout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(UserInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(UserInfoPanelLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(NameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(304, 304, 304)
-                        .addComponent(Nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(UserInfoPanelLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
+                        .addComponent(MailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Mailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UserInfoPanelLayout.createSequentialGroup()
                         .addComponent(NumLabel)
-                        .addGap(269, 269, 269)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Numtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(UserInfoPanelLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(MailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(338, 338, 338)
-                        .addComponent(Mailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addComponent(NameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(85, 85, 85))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UserInfoPanelLayout.createSequentialGroup()
+                .addContainerGap(171, Short.MAX_VALUE)
+                .addComponent(UserInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(155, 155, 155))
         );
         UserInfoPanelLayout.setVerticalGroup(
             UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,105 +132,25 @@ public class UserInfo extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(UserInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87)
-                .addGroup(UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(UserInfoPanelLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(NameLabel))
+                .addGroup(UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NameLabel)
                     .addComponent(Nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75)
-                .addGroup(UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(UserInfoPanelLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(NumLabel))
-                    .addComponent(Numtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Numtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NumLabel))
                 .addGap(75, 75, 75)
-                .addGroup(UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(UserInfoPanelLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(MailLabel))
-                    .addComponent(Mailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Mailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MailLabel))
+                .addContainerGap())
         );
 
         getContentPane().add(UserInfoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 0, 790, 650));
 
-        ChangePassPanel.setBackground(new java.awt.Color(204, 204, 204));
-        ChangePassPanel.setPreferredSize(new java.awt.Dimension(790, 444));
-
-        ChangePasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ChangePasswordLabel.setText("Enter New Password");
-
-        ConfirmLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ConfirmLabel.setText("Confirm Password");
-
-        ChangePass_Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ChangePass_Button.setText("Change Password");
-        ChangePass_Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChangePass_ButtonActionPerformed(evt);
-            }
-        });
-
-        BackButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        BackButton.setText("Back");
-        BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BackButtonMouseClicked(evt);
-            }
-        });
-        BackButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackButtonActionPerformed(evt);
-            }
-        });
-
-        NewPassword.setText("jPasswordField1");
-
-        ConfirmPassword.setText("jPasswordField2");
-
-        javax.swing.GroupLayout ChangePassPanelLayout = new javax.swing.GroupLayout(ChangePassPanel);
-        ChangePassPanel.setLayout(ChangePassPanelLayout);
-        ChangePassPanelLayout.setHorizontalGroup(
-            ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ChangePassPanelLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(ChangePass_Button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ChangePassPanelLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addGroup(ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(ChangePassPanelLayout.createSequentialGroup()
-                        .addComponent(ConfirmLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
-                        .addComponent(ConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ChangePassPanelLayout.createSequentialGroup()
-                        .addComponent(ChangePasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(NewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(130, 130, 130))
-        );
-        ChangePassPanelLayout.setVerticalGroup(
-            ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ChangePassPanelLayout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addGroup(ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ChangePasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
-                .addGroup(ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConfirmLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(159, 159, 159)
-                .addGroup(ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ChangePass_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(94, 94, 94))
-        );
-
-        getContentPane().add(ChangePassPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 790, 650));
-
         SidePanel.setBackground(new java.awt.Color(102, 102, 102));
+
+        UserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/voice_13125512 (2).png"))); // NOI18N
 
         HeyUserLabel.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         HeyUserLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -262,46 +182,40 @@ public class UserInfo extends javax.swing.JFrame {
         ExitLabel.setText("EXIT");
         ExitLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0), 3));
 
-        UserIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginandsignup/voice_13125512 (2).png"))); // NOI18N
-
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
         SidePanelLayout.setHorizontalGroup(
             SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidePanelLayout.createSequentialGroup()
-                .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(UserIcon)
-                    .addGroup(SidePanelLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(UserIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SidePanelLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(HeyUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SidePanelLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(EditLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SidePanelLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(ChangePassLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SidePanelLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(ExitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ExitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ChangePassLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(SidePanelLayout.createSequentialGroup()
+                            .addGap(100, 100, 100)
+                            .addComponent(HeyUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(SidePanelLayout.createSequentialGroup()
+                            .addGap(94, 94, 94)
+                            .addComponent(UserIcon))
+                        .addGroup(SidePanelLayout.createSequentialGroup()
+                            .addGap(73, 73, 73)
+                            .addComponent(EditLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         SidePanelLayout.setVerticalGroup(
             SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidePanelLayout.createSequentialGroup()
-                .addComponent(UserIcon)
-                .addGap(30, 30, 30)
-                .addComponent(UserIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addGap(25, 25, 25)
+                .addComponent(UserIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(HeyUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
                 .addComponent(EditLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
                 .addComponent(ChangePassLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83)
-                .addComponent(ExitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ExitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 650));
@@ -387,12 +301,105 @@ public class UserInfo extends javax.swing.JFrame {
 
         getContentPane().add(EditPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 790, 650));
 
+        ChangePassPanel.setBackground(new java.awt.Color(204, 204, 204));
+        ChangePassPanel.setPreferredSize(new java.awt.Dimension(790, 444));
+
+        ChangePasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ChangePasswordLabel.setText("Enter New Password");
+
+        ConfirmLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ConfirmLabel.setText("Confirm Password");
+
+        ChangePass_Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ChangePass_Button.setText("Change Password");
+        ChangePass_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChangePass_ButtonActionPerformed(evt);
+            }
+        });
+
+        BackButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BackButton.setText("Back");
+        BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackButtonMouseClicked(evt);
+            }
+        });
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
+
+        NewPassword.setText("jPasswordField1");
+
+        ConfirmPassword.setText("jPasswordField2");
+
+        javax.swing.GroupLayout ChangePassPanelLayout = new javax.swing.GroupLayout(ChangePassPanel);
+        ChangePassPanel.setLayout(ChangePassPanelLayout);
+        ChangePassPanelLayout.setHorizontalGroup(
+            ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ChangePassPanelLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(ChangePass_Button)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ChangePassPanelLayout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addGroup(ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ChangePassPanelLayout.createSequentialGroup()
+                        .addComponent(ConfirmLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                        .addComponent(ConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ChangePassPanelLayout.createSequentialGroup()
+                        .addComponent(ChangePasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(NewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(130, 130, 130))
+        );
+        ChangePassPanelLayout.setVerticalGroup(
+            ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ChangePassPanelLayout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addGroup(ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ChangePasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConfirmLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(195, 195, 195)
+                .addGroup(ChangePassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ChangePass_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(94, 94, 94))
+        );
+
+        getContentPane().add(ChangePassPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 790, 650));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void NumtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumtxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NumtxtActionPerformed
+
+    private void ChangePass_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePass_ButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChangePass_ButtonActionPerformed
+
+    private void EditNametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditNametxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EditNametxtActionPerformed
+
+    private void EditProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProfileButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EditProfileButtonActionPerformed
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BackButtonActionPerformed
 
     private void EditLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditLabelMouseClicked
         // TODO add your handling code here:
@@ -417,10 +424,6 @@ public class UserInfo extends javax.swing.JFrame {
         BackButton.setVisible(true);
     }//GEN-LAST:event_ChangePassLabelMouseClicked
 
-    private void EditProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProfileButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EditProfileButtonActionPerformed
-
     private void EditBackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditBackButtonMouseClicked
         // TODO add your handling code here:
         UserInfoPanel.setVisible(true);
@@ -428,24 +431,12 @@ public class UserInfo extends javax.swing.JFrame {
         EditPanel.setVisible(false);
     }//GEN-LAST:event_EditBackButtonMouseClicked
 
-    private void EditNametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditNametxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EditNametxtActionPerformed
-
-    private void ChangePass_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePass_ButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChangePass_ButtonActionPerformed
-
     private void BackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMouseClicked
         // TODO add your handling code here:
         UserInfoPanel.setVisible(true);
         ChangePassPanel.setVisible(false);
         EditPanel.setVisible(false);
     }//GEN-LAST:event_BackButtonMouseClicked
-
-    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BackButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,20 +455,23 @@ public class UserInfo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserInfo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserInfo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserInfo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserInfo1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserInfo().setVisible(true);
+                new UserInfo1().setVisible(true);
             }
         });
     }
@@ -511,7 +505,6 @@ public class UserInfo extends javax.swing.JFrame {
     private javax.swing.JTextField Numtxt;
     private javax.swing.JPanel SidePanel;
     private javax.swing.JLabel UserIcon;
-    private javax.swing.JLabel UserIcon1;
     private javax.swing.JLabel UserInfoLabel;
     private javax.swing.JPanel UserInfoPanel;
     // End of variables declaration//GEN-END:variables
