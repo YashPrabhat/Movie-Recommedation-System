@@ -1,5 +1,14 @@
 
 package AnniWork;
+import java.awt.event.KeyEvent;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.ImageIcon;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 public class SignUp extends javax.swing.JFrame {
 
@@ -178,13 +187,13 @@ public class SignUp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtnameActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
+       
+    }//GEN-LAST:event_txtemailActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        Login LoginFrame = new Login();
@@ -195,13 +204,114 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    dashboard dashboardFrame = new dashboard();  // Corrected the typo to Dashboard
-    dashboardFrame.setVisible(true);              // Makes the frame visible
-    dashboardFrame.pack();                       // Adjusts the frame size to fit its components
-    dashboardFrame.setLocationRelativeTo(null);  // Centers the frame on the screen
-    this.dispose(); 
+    if(txtname.getText().equals("")){
+        JOptionPane.showMessageDialog(this,"All Fields are required");
+        txtname.requestFocus();
+        }
+    else if(txtage.getText().equals("")){
+         JOptionPane.showMessageDialog(this,"All Fields are required");
+         txtage.requestFocus();
+    }
+    else if(txtphno.getText().equals("")){
+         JOptionPane.showMessageDialog(this,"All Fields are required");
+         txtphno.requestFocus();
+    }
+    else if(txtemail.getText().equals("")){
+         JOptionPane.showMessageDialog(this,"All Fields are required");
+         txtemail.requestFocus();
+    }
+    else if(txtpass.getText().equals("")){
+        JOptionPane.showMessageDialog(this,"All Fields are required");
+        txtpass.requestFocus();
+        }
+    else if(txtans.getText().equals("")){
+        JOptionPane.showMessageDialog(this,"All Fields are required");
+        txtans.requestFocus();
+        }
+     else{    
+    PreparedStatement pst=null;
+    Statement st=null;
+    ResultSet rs=null;
+    java.sql.Connection con=null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/movierecsystem","root","kanishka");
+           // st=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            pst=con.prepareStatement("select * from userlogin where emailid=?");
+            pst.setString(1, txtemail.getText());
+            rs=pst.executeQuery();
+            if(rs.next()){
+                JOptionPane.showMessageDialog(this,"Email ID already registered!!!");
+                txtemail.requestFocus();
+            }
+            else{
+                pst=con.prepareStatement("insert into userlogin (name,age,contactno,favmovie,emailid,password)values(?,?,?,?,?,?)");
+                pst.setString(1, txtname.getText());
+                pst.setString(2, txtage.getText());
+                pst.setString(3, txtphno.getText());
+                pst.setString(4, txtans.getText());
+                pst.setString(5, txtemail.getText().toLowerCase());
+                pst.setString(6, txtpass.getText());
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Registered Successfully\nLogin Now");
+                Login LoginFrame = new Login();
+                LoginFrame.setVisible(true);
+                LoginFrame.pack();
+                LoginFrame.setLocationRelativeTo(null); 
+                this.dispose();
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+           //Logger.getLogger(Record.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txtageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtageActionPerformed
+   
+        
+    }//GEN-LAST:event_txtageActionPerformed
+
+
+    private void txtphnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtphnoActionPerformed
+
+    private void txtageKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtageKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Prevent non-digit characters
+            JOptionPane.showMessageDialog(this, "Please enter only numbers in the Age field.");
+      }
+    }//GEN-LAST:event_txtageKeyTyped
+
+    private void txtphnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtphnoKeyTyped
+         char d = evt.getKeyChar();
+         if (!Character.isDigit(d)) {
+             evt.consume(); // Prevent non-digit characters
+             JOptionPane.showMessageDialog(this, "Please enter only numbers in the Contact no. field.");
+    }
+             
+    }//GEN-LAST:event_txtphnoKeyTyped
+
+    private void txtnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnameKeyTyped
+      char e = evt.getKeyChar();
+      if (Character.isDigit(e)) {
+          evt.consume(); // Prevent non-digit characters
+          JOptionPane.showMessageDialog(this, "Please enter only Text in the Name field.");
+    }
+        
+    }//GEN-LAST:event_txtnameKeyTyped
+
+    private void txtansKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtansKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtansKeyTyped
+
+    private void txtansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtansActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtansActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

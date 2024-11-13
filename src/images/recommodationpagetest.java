@@ -2,24 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package AnniWork;
+package images;
 
+import AnniWork.*;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 //import java.sql.URISyntaxException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author shudhanshu pal
  */
-public class recommodationpage extends javax.swing.JFrame {
+public class recommodationpagetest extends javax.swing.JFrame {
 
     /**
      * Creates new form recommodationpage
@@ -41,7 +44,7 @@ public class recommodationpage extends javax.swing.JFrame {
     ResultSet rs;
     Connection c = connector.Connection();
 
-    public recommodationpage() {
+    public recommodationpagetest() {
         initComponents();
     }
 
@@ -74,7 +77,6 @@ public class recommodationpage extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/img_background.jpg"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1100, 650));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -438,12 +440,12 @@ public class recommodationpage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        scifi HorrorMoviesForm = new scifi();
+        scifitest HorrorMoviesForm = new scifitest();
         HorrorMoviesForm.setVisible(true);
-        HorrorMoviesForm.populateTable(); 
-        HorrorMoviesForm.populateTable1();
+        HorrorMoviesForm.populateTable();
+        // Prepare the SQL statement
         
-        // TODO add yo// TODO add your handling code here:
+               // TODO add yo// TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -477,20 +479,21 @@ public class recommodationpage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(recommodationpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(recommodationpagetest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(recommodationpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(recommodationpagetest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(recommodationpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(recommodationpagetest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(recommodationpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(recommodationpagetest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new recommodationpage().setVisible(true);
+                new recommodationpagetest().setVisible(true);
             }
         });
     }
