@@ -39,7 +39,6 @@ public class dashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard\n");
-        setPreferredSize(new java.awt.Dimension(1100, 650));
 
         Background.setBackground(new java.awt.Color(43, 41, 41));
 
@@ -273,7 +272,7 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_ProfileActionPerformed
 
     private void jButton_WatchlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_WatchlistActionPerformed
-        WatchList watchlistFrame = new WatchList();
+        Watchlist watchlistFrame = new Watchlist();
         watchlistFrame.setVisible(true);
         watchlistFrame.pack();
         watchlistFrame.setLocationRelativeTo(null);
