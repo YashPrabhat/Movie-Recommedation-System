@@ -20,11 +20,11 @@ public class WelcomePage extends javax.swing.JFrame {
         TagLine = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Background = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Welcome");
-        setPreferredSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(1100, 650));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Header.setBackground(new java.awt.Color(0, 0, 0));
@@ -39,9 +39,9 @@ public class WelcomePage extends javax.swing.JFrame {
         HeaderLayout.setHorizontalGroup(
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderLayout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Heading, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(171, 171, 171))
         );
         HeaderLayout.setVerticalGroup(
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -51,7 +51,7 @@ public class WelcomePage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 90));
+        getContentPane().add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 90));
 
         GetStarted.setBackground(new java.awt.Color(147, 0, 0));
         GetStarted.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
@@ -63,25 +63,25 @@ public class WelcomePage extends javax.swing.JFrame {
                 GetStartedActionPerformed(evt);
             }
         });
-        getContentPane().add(GetStarted, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 230, 50));
+        getContentPane().add(GetStarted, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 230, 50));
 
         TagLine.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         TagLine.setForeground(new java.awt.Color(255, 255, 255));
         TagLine.setText("Let us guide you to your next favorite story on screen.");
-        getContentPane().add(TagLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 660, 30));
+        getContentPane().add(TagLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 660, 30));
 
         jLabel1.setFont(new java.awt.Font("Stencil", 0, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel1.setText("1000+                            500+                               10+  ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 940, 30));
+        jLabel1.setText("1000+                                        500+                                          10+  ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, 1040, 30));
 
         jLabel2.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel2.setText("MOVIES                    ACTORS                   GENRES");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 800, -1));
+        jLabel2.setText("MOVIES                               ACTORS                              GENRES");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, 990, -1));
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background.jpg"))); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1099, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -105,12 +105,12 @@ public class WelcomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Background;
     private javax.swing.JButton GetStarted;
     private javax.swing.JPanel Header;
     private javax.swing.JLabel Heading;
     private javax.swing.JLabel TagLine;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
