@@ -47,6 +47,7 @@ public class UserInfo1 extends javax.swing.JFrame {
         Nametxt = new javax.swing.JTextField();
         Numtxt = new javax.swing.JTextField();
         Mailtxt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         SidePanel = new javax.swing.JPanel();
         UserIcon = new javax.swing.JLabel();
         HeyUserLabel = new javax.swing.JLabel();
@@ -101,6 +102,8 @@ public class UserInfo1 extends javax.swing.JFrame {
 
         Mailtxt.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout UserInfoPanelLayout = new javax.swing.GroupLayout(UserInfoPanel);
         UserInfoPanel.setLayout(UserInfoPanelLayout);
         UserInfoPanelLayout.setHorizontalGroup(
@@ -108,10 +111,6 @@ public class UserInfo1 extends javax.swing.JFrame {
             .addGroup(UserInfoPanelLayout.createSequentialGroup()
                 .addGap(85, 85, 85)
                 .addGroup(UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(UserInfoPanelLayout.createSequentialGroup()
-                        .addComponent(MailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Mailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UserInfoPanelLayout.createSequentialGroup()
                         .addComponent(NumLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -119,7 +118,13 @@ public class UserInfo1 extends javax.swing.JFrame {
                     .addGroup(UserInfoPanelLayout.createSequentialGroup()
                         .addComponent(NameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(UserInfoPanelLayout.createSequentialGroup()
+                        .addGroup(UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Mailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(85, 85, 85))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UserInfoPanelLayout.createSequentialGroup()
                 .addContainerGap(171, Short.MAX_VALUE)
@@ -143,6 +148,8 @@ public class UserInfo1 extends javax.swing.JFrame {
                 .addGroup(UserInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Mailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MailLabel))
+                .addGap(77, 77, 77)
+                .addComponent(jLabel1)
                 .addContainerGap())
         );
 
@@ -518,5 +525,6 @@ public class UserInfo1 extends javax.swing.JFrame {
     private javax.swing.JLabel UserIcon;
     private javax.swing.JLabel UserInfoLabel;
     private javax.swing.JPanel UserInfoPanel;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
