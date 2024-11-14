@@ -1,0 +1,325 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..84c048a[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m/build/[m
+[1mdiff --git a/MovieRecommendationSystem/pom.xml b/MovieRecommendationSystem/pom.xml[m
+[1mdeleted file mode 100644[m
+[1mindex b489af3..0000000[m
+[1m--- a/MovieRecommendationSystem/pom.xml[m
+[1m+++ /dev/null[m
+[36m@@ -1,13 +0,0 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+[31m-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">[m
+[31m-    <modelVersion>4.0.0</modelVersion>[m
+[31m-    <groupId>com.javaheabycoders</groupId>[m
+[31m-    <artifactId>MovieRecommendationSystem</artifactId>[m
+[31m-    <version>1.0-SNAPSHOT</version>[m
+[31m-    <packaging>jar</packaging>[m
+[31m-    <properties>[m
+[31m-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>[m
+[31m-        <maven.compiler.release>22</maven.compiler.release>[m
+[31m-        <exec.mainClass>com.javaheabycoders.movierecommendationsystem.MovieRecommendationSystem</exec.mainClass>[m
+[31m-    </properties>[m
+[31m-</project>[m
+\ No newline at end of file[m
+[1mdiff --git a/MovieRecommendationSystem/src/main/java/com/javaheabycoders/movierecommendationsystem/MovieRecommendationSystem.java b/MovieRecommendationSystem/src/main/java/com/javaheabycoders/movierecommendationsystem/MovieRecommendationSystem.java[m
+[1mdeleted file mode 100644[m
+[1mindex 609e0ec..0000000[m
+[1m--- a/MovieRecommendationSystem/src/main/java/com/javaheabycoders/movierecommendationsystem/MovieRecommendationSystem.java[m
+[1m+++ /dev/null[m
+[36m@@ -1,16 +0,0 @@[m
+[31m-/*[m
+[31m- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license[m
+[31m- */[m
+[31m-[m
+[31m-package com.javaheabycoders.movierecommendationsystem;[m
+[31m-[m
+[31m-/**[m
+[31m- *[m
+[31m- * @author Yash Prabhat[m
+[31m- */[m
+[31m-public class MovieRecommendationSystem {[m
+[31m-[m
+[31m-    public static void main(String[] args) {[m
+[31m-        System.out.println("Hello World!");[m
+[31m-    }[m
+[31m-}[m
+[1mdiff --git a/MovieRecommendationSystem/target/classes/com/javaheabycoders/movierecommendationsystem/MovieRecommendationSystem.class b/MovieRecommendationSystem/target/classes/com/javaheabycoders/movierecommendationsystem/MovieRecommendationSystem.class[m
+[1mdeleted file mode 100644[m
+[1mindex 09a1753..0000000[m
+Binary files a/MovieRecommendationSystem/target/classes/com/javaheabycoders/movierecommendationsystem/MovieRecommendationSystem.class and /dev/null differ
+[1mdiff --git a/MovieRecommendationSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst b/MovieRecommendationSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst[m
+[1mdeleted file mode 100644[m
+[1mindex a05f7cc..0000000[m
+[1m--- a/MovieRecommendationSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst[m
+[1m+++ /dev/null[m
+[36m@@ -1 +0,0 @@[m
+[31m-com\javaheabycoders\movierecommendationsystem\MovieRecommendationSystem.class[m
+[1mdiff --git a/MovieRecommendationSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst b/MovieRecommendationSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst[m
+[1mdeleted file mode 100644[m
+[1mindex f106ebf..0000000[m
+[1m--- a/MovieRecommendationSystem/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst[m
+[1m+++ /dev/null[m
+[36m@@ -1 +0,0 @@[m
+[31m-C:\Users\ARP\Documents\NetBeansProjects\MovieRecommendationSystem\src\main\java\com\javaheabycoders\movierecommendationsystem\MovieRecommendationSystem.java[m
+[1mdiff --git a/Movies/README_DO_NOT_TOUCH_FILES.txt b/Movies/README_DO_NOT_TOUCH_FILES.txt[m
+[1mdeleted file mode 100644[m
+[1mindex a4bc145..0000000[m
+[1m--- a/Movies/README_DO_NOT_TOUCH_FILES.txt[m
+[1m+++ /dev/null[m
+[36m@@ -1,9 +0,0 @@[m
+[31m-[m
+[31m-# *************************************************************************[m
+[31m-# ***              DO NOT TOUCH FILES IN THIS DIRECTORY!                ***[m
+[31m-# *** FILES IN THIS DIRECTORY AND SUBDIRECTORIES CONSTITUTE A DERBY     ***[m
+[31m-# *** DATABASE, WHICH INCLUDES THE DATA (USER AND SYSTEM) AND THE       ***[m
+[31m-# *** FILES NECESSARY FOR DATABASE RECOVERY.                            ***[m
+[31m-# *** EDITING, ADDING, OR DELETING ANY OF THESE FILES MAY CAUSE DATA    ***[m
+[31m-# *** CORRUPTION AND LEAVE THE DATABASE IN A NON-RECOVERABLE STATE.     ***[m
+[31m-# *************************************************************************[m
+\ No newline at end of file[m
+[1mdiff --git a/Movies/db.lck b/Movies/db.lck[m
+[1mdeleted file mode 100644[m
+[1mindex 9014f87..0000000[m
+Binary files a/Movies/db.lck and /dev/null differ
+[1mdiff --git a/Movies/log/README_DO_NOT_TOUCH_FILES.txt b/Movies/log/README_DO_NOT_TOUCH_FILES.txt[m
+[1mdeleted file mode 100644[m
+[1mindex 56df292..0000000[m
+[1m--- a/Movies/log/README_DO_NOT_TOUCH_FILES.txt[m
+[1m+++ /dev/null[m
+[36m@@ -1,8 +0,0 @@[m
+[31m-[m
+[31m-# *************************************************************************[m
+[31m-# ***              DO NOT TOUCH FILES IN THIS DIRECTORY!                ***[m
+[31m-# *** FILES IN THIS DIRECTORY ARE USED BY THE DERBY DATABASE RECOVERY   ***[m
+[31m-# *** SYSTEM. EDITING, ADDING, OR DELETING FILES IN THIS DIRECTORY      ***[m
+[31m-# *** WILL CAUSE THE DERBY RECOVERY SYSTEM TO FAIL, LEADING TO          ***[m
+[31m-# *** NON-RECOVERABLE CORRUPT DATABASES.                                ***[m
+[31m-# *************************************************************************[m
+\ No newline at end of file[m
+[1mdiff --git a/Movies/log/log.ctrl b/Movies/log/log.ctrl[m
+[1mdeleted file mode 100644[m
+[1mindex e8626da..0000000[m
+Binary files a/Movies/log/log.ctrl and /dev/null differ
+[1mdiff --git a/Movies/log/log1.dat b/Movies/log/log1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex b19136b..0000000[m
+Binary files a/Movies/log/log1.dat and /dev/null differ
+[1mdiff --git a/Movies/log/logmirror.ctrl b/Movies/log/logmirror.ctrl[m
+[1mdeleted file mode 100644[m
+[1mindex e8626da..0000000[m
+Binary files a/Movies/log/logmirror.ctrl and /dev/null differ
+[1mdiff --git a/Movies/seg0/README_DO_NOT_TOUCH_FILES.txt b/Movies/seg0/README_DO_NOT_TOUCH_FILES.txt[m
+[1mdeleted file mode 100644[m
+[1mindex 2bdad06..0000000[m
+[1m--- a/Movies/seg0/README_DO_NOT_TOUCH_FILES.txt[m
+[1m+++ /dev/null[m
+[36m@@ -1,8 +0,0 @@[m
+[31m-[m
+[31m-# *************************************************************************[m
+[31m-# ***              DO NOT TOUCH FILES IN THIS DIRECTORY!                ***[m
+[31m-# *** FILES IN THIS DIRECTORY ARE USED BY THE DERBY DATABASE TO STORE   *** [m
+[31m-# *** USER AND SYSTEM DATA. EDITING, ADDING, OR DELETING FILES IN THIS  ***[m
+[31m-# *** DIRECTORY WILL CORRUPT THE ASSOCIATED DERBY DATABASE AND MAKE     ***[m
+[31m-# *** IT NON-RECOVERABLE.                                               ***[m
+[31m-# *************************************************************************[m
+\ No newline at end of file[m
+[1mdiff --git a/Movies/seg0/c10.dat b/Movies/seg0/c10.dat[m
+[1mdeleted file mode 100644[m
+[1mindex fdafb90..0000000[m
+Binary files a/Movies/seg0/c10.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c101.dat b/Movies/seg0/c101.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 850fc86..0000000[m
+Binary files a/Movies/seg0/c101.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c111.dat b/Movies/seg0/c111.dat[m
+[1mdeleted file mode 100644[m
+[1mindex cdc5018..0000000[m
+Binary files a/Movies/seg0/c111.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c121.dat b/Movies/seg0/c121.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 792a80d..0000000[m
+Binary files a/Movies/seg0/c121.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c130.dat b/Movies/seg0/c130.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 8dfc7e8..0000000[m
+Binary files a/Movies/seg0/c130.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c141.dat b/Movies/seg0/c141.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 7a4d6a2..0000000[m
+Binary files a/Movies/seg0/c141.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c150.dat b/Movies/seg0/c150.dat[m
+[1mdeleted file mode 100644[m
+[1mindex f734c46..0000000[m
+Binary files a/Movies/seg0/c150.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c161.dat b/Movies/seg0/c161.dat[m
+[1mdeleted file mode 100644[m
+[1mindex ced8573..0000000[m
+Binary files a/Movies/seg0/c161.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c171.dat b/Movies/seg0/c171.dat[m
+[1mdeleted file mode 100644[m
+[1mindex ee31fe4..0000000[m
+Binary files a/Movies/seg0/c171.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c180.dat b/Movies/seg0/c180.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 56bdb2a..0000000[m
+Binary files a/Movies/seg0/c180.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c191.dat b/Movies/seg0/c191.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 3ee2e8a..0000000[m
+Binary files a/Movies/seg0/c191.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c1a1.dat b/Movies/seg0/c1a1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex ae8da40..0000000[m
+Binary files a/Movies/seg0/c1a1.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c1b1.dat b/Movies/seg0/c1b1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 79a1779..0000000[m
+Binary files a/Movies/seg0/c1b1.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c1c0.dat b/Movies/seg0/c1c0.dat[m
+[1mdeleted file mode 100644[m
+[1mindex c5b91e2..0000000[m
+Binary files a/Movies/seg0/c1c0.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c1d1.dat b/Movies/seg0/c1d1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 451f02f..0000000[m
+Binary files a/Movies/seg0/c1d1.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c1e0.dat b/Movies/seg0/c1e0.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 761408d..0000000[m
+Binary files a/Movies/seg0/c1e0.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c1f1.dat b/Movies/seg0/c1f1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 78d701f..0000000[m
+Binary files a/Movies/seg0/c1f1.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c20.dat b/Movies/seg0/c20.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 21f6c85..0000000[m
+Binary files a/Movies/seg0/c20.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c200.dat b/Movies/seg0/c200.dat[m
+[1mdeleted file mode 100644[m
+[1mindex c3a7808..0000000[m
+Binary files a/Movies/seg0/c200.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c211.dat b/Movies/seg0/c211.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 54e1586..0000000[m
+Binary files a/Movies/seg0/c211.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c221.dat b/Movies/seg0/c221.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 59900bc..0000000[m
+Binary files a/Movies/seg0/c221.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c230.dat b/Movies/seg0/c230.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 5da2397..0000000[m
+Binary files a/Movies/seg0/c230.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c241.dat b/Movies/seg0/c241.dat[m
+[1mdeleted file mode 100644[m
+[1mindex e430480..0000000[m
+Binary files a/Movies/seg0/c241.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c251.dat b/Movies/seg0/c251.dat[m
+[1mdeleted file mode 100644[m
+[1mindex f2a385a..0000000[m
+Binary files a/Movies/seg0/c251.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c260.dat b/Movies/seg0/c260.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 25f81fd..0000000[m
+Binary files a/Movies/seg0/c260.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c271.dat b/Movies/seg0/c271.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 51cde57..0000000[m
+Binary files a/Movies/seg0/c271.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c281.dat b/Movies/seg0/c281.dat[m
+[1mdeleted file mode 100644[m
+[1mindex cfed875..0000000[m
+Binary files a/Movies/seg0/c281.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c290.dat b/Movies/seg0/c290.dat[m
+[1mdeleted file mode 100644[m
+[1mindex a85589e..0000000[m
+Binary files a/Movies/seg0/c290.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c2a1.dat b/Movies/seg0/c2a1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 8e2ed6a..0000000[m
+Binary files a/Movies/seg0/c2a1.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c2b1.dat b/Movies/seg0/c2b1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 2a29692..0000000[m
+Binary files a/Movies/seg0/c2b1.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c2c1.dat b/Movies/seg0/c2c1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 5511575..0000000[m
+Binary files a/Movies/seg0/c2c1.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c2d0.dat b/Movies/seg0/c2d0.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 4adc6e4..0000000[m
+Binary files a/Movies/seg0/c2d0.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c2e1.dat b/Movies/seg0/c2e1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex b37b9b2..0000000[m
+Binary files a/Movies/seg0/c2e1.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c2f0.dat b/Movies/seg0/c2f0.dat[m
+[1mdeleted file mode 100644[m
+[1mindex d854b4b..0000000[m
+Binary files a/Movies/seg0/c2f0.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c300.dat b/Movies/seg0/c300.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 2053e01..0000000[m
+Binary files a/Movies/seg0/c300.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c31.dat b/Movies/seg0/c31.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 59a963a..0000000[m
+Binary files a/Movies/seg0/c31.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c311.dat b/Movies/seg0/c311.dat[m
+[1mdeleted file mode 100644[m
+[1mindex f60c260..0000000[m
+Binary files a/Movies/seg0/c311.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c321.dat b/Movies/seg0/c321.dat[m
+[1mdeleted file mode 100644[m
+[1mindex a9d7453..0000000[m
+Binary files a/Movies/seg0/c321.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c331.dat b/Movies/seg0/c331.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 85ee72b..0000000[m
+Binary files a/Movies/seg0/c331.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c340.dat b/Movies/seg0/c340.dat[m
+[1mdeleted file mode 100644[m
+[1mindex d99b11a..0000000[m
+Binary files a/Movies/seg0/c340.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c351.dat b/Movies/seg0/c351.dat[m
+[1mdeleted file mode 100644[m
+[1mindex f822f4c..0000000[m
+Binary files a/Movies/seg0/c351.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c361.dat b/Movies/seg0/c361.dat[m
+[1mdeleted file mode 100644[m
+[1mindex b5c8f25..0000000[m
+Binary files a/Movies/seg0/c361.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c371.dat b/Movies/seg0/c371.dat[m
+[1mdeleted file mode 100644[m
+[1mindex ad11f01..0000000[m
+Binary files a/Movies/seg0/c371.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c380.dat b/Movies/seg0/c380.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 3423888..0000000[m
+Binary files a/Movies/seg0/c380.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c391.dat b/Movies/seg0/c391.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 8dcd6ff..0000000[m
+Binary files a/Movies/seg0/c391.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c3a1.dat b/Movies/seg0/c3a1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 9eb9353..0000000[m
+Binary files a/Movies/seg0/c3a1.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c3b1.dat b/Movies/seg0/c3b1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 929a1e2..0000000[m
+Binary files a/Movies/seg0/c3b1.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c3c0.dat b/Movies/seg0/c3c0.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 4d061cf..0000000[m
+Binary files a/Movies/seg0/c3c0.dat and /dev/null differ
+[1mdiff --git a/Movies/seg0/c3d1.dat b/Movies/seg0/c3d1.dat[m
+[1mdeleted file mode 100644[m
+[1mindex 45c9fa2..0000000[m
+Binary files a/Mov
