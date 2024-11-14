@@ -28,6 +28,9 @@ public class Login extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -41,13 +44,13 @@ public class Login extends javax.swing.JFrame {
         LEFT.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/welcome.png"))); // NOI18N
-        LEFT.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, 320));
+        LEFT.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, 250));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background2.jpg"))); // NOI18N
-        LEFT.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        LEFT.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 650));
 
         jPanel1.add(LEFT);
-        LEFT.setBounds(0, 30, 550, 620);
+        LEFT.setBounds(0, 0, 550, 650);
 
         RIGHT.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -97,6 +100,11 @@ public class Login extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(153, 0, 0));
         jButton3.setText("Forget Password?");
         jButton3.setBorder(null);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Sylfaen", 0, 18)); // NOI18N
         jLabel5.setText("I don't have an account.");
@@ -156,11 +164,19 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(RIGHTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jButton2))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         jPanel1.add(RIGHT);
-        RIGHT.setBounds(550, 30, 550, 620);
+        RIGHT.setBounds(550, 0, 550, 650);
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,7 +186,9 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 2, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -200,6 +218,14 @@ public class Login extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       ForgetPassword ForgetPasswordFrame = new ForgetPassword();
+       ForgetPasswordFrame.setVisible(true);
+       ForgetPasswordFrame.pack();
+       ForgetPasswordFrame.setLocationRelativeTo(null);  // Centers the frame on the screen
+       this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -214,6 +240,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;

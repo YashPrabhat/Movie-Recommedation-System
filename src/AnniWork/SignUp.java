@@ -1,6 +1,8 @@
 
 package AnniWork;
 
+import javax.swing.JOptionPane;
+
 public class SignUp extends javax.swing.JFrame {
 
 
@@ -126,7 +128,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel9.setText("Contact No.");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setText("What's Your Favorite Movie?");
+        jLabel10.setText("What's Your Favorite Movie? (Security Question)");
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +167,6 @@ public class SignUp extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,7 +175,8 @@ public class SignUp extends javax.swing.JFrame {
                                 .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                     .addGap(149, 149, 149)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -286,21 +288,24 @@ public class SignUp extends javax.swing.JFrame {
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
-            evt.consume(); // Ignore the input if it's a digit
+            JOptionPane.showMessageDialog(this,"Only Digits Are Allowed!"); // Ignore the input if it's a digit
+            evt.consume();
         }
     }//GEN-LAST:event_jTextField3KeyTyped
 
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         char d = evt.getKeyChar();
         if (!Character.isDigit(d)) {
-            evt.consume(); // Ignore the input if it's not a digit
+            JOptionPane.showMessageDialog(this,"Only Digits Are Allowed!"); // Ignore the input if it's not a digit
+            evt.consume();
         }       
     }//GEN-LAST:event_jTextField4KeyTyped
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         char e = evt.getKeyChar();
         if (Character.isDigit(e)) {
-            evt.consume(); // Ignore the input if it's not a digit
+            JOptionPane.showMessageDialog(this,"Only Alphabets Are Allowed!"); // Ignore the input if it's not a digit
+            evt.consume();
         }
     }//GEN-LAST:event_jTextField1KeyTyped
 

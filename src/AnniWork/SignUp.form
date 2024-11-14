@@ -110,7 +110,6 @@
                                       <Component id="jLabel7" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
                                       <Component id="jLabel3" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                                       <Component id="jLabel9" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel4" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                                       <Component id="jTextField2" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
                                       <Component id="jTextField5" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
@@ -121,6 +120,7 @@
                                           <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
                                           <Component id="jLabel2" min="-2" pref="179" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="jLabel10" alignment="0" min="-2" pref="340" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -285,7 +285,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="What&apos;s Your Favorite Movie?"/>
+                <Property name="text" type="java.lang.String" value="What&apos;s Your Favorite Movie? (Security Question)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField5">

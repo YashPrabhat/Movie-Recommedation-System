@@ -265,11 +265,11 @@ public class dashboard extends javax.swing.JFrame {
 
    
     private void jButton_ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ProfileActionPerformed
-         Profile ProfileFrame = new Profile();
-         ProfileFrame.setVisible(true);
-         ProfileFrame.pack();
-         ProfileFrame.setLocationRelativeTo(null);
-         this.dispose();
+        UserInfo UserInfoFrame = new UserInfo();
+        UserInfoFrame.setVisible(true);
+        UserInfoFrame.pack();
+        UserInfoFrame.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_jButton_ProfileActionPerformed
 
     private void jButton_WatchlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_WatchlistActionPerformed
@@ -281,7 +281,11 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_WatchlistActionPerformed
 
     private void jButton_NewRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NewRecActionPerformed
-        // TODO add your handling code here:
+       Recommendationpage RecFrame = new Recommendationpage();
+        RecFrame.setVisible(true);
+        RecFrame.pack();
+        RecFrame.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_jButton_NewRecActionPerformed
 
     private void jButton_leftArrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_leftArrowActionPerformed
