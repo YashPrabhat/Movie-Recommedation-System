@@ -1,6 +1,13 @@
 
 package AnniWork;
-
+import java.awt.event.KeyEvent;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.ImageIcon;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 public class SignUp extends javax.swing.JFrame {
@@ -19,19 +26,19 @@ public class SignUp extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtname = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtemail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtpass = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
+        txtage = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtphno = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtans = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -56,23 +63,23 @@ public class SignUp extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Name");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtnameActionPerformed(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
+                txtnameKeyTyped(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Email");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtemail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtemailActionPerformed(evt);
             }
         });
 
@@ -99,28 +106,28 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtageActionPerformed(evt);
             }
         });
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtage.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField3KeyTyped(evt);
+                txtageKeyTyped(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Age");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtphno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtphnoActionPerformed(evt);
             }
         });
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtphno.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField4KeyTyped(evt);
+                txtphnoKeyTyped(evt);
             }
         });
 
@@ -130,14 +137,14 @@ public class SignUp extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setText("What's Your Favorite Movie? (Security Question)");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtans.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txtansActionPerformed(evt);
             }
         });
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtans.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField5KeyTyped(evt);
+                txtansKeyTyped(evt);
             }
         });
 
@@ -162,17 +169,17 @@ public class SignUp extends javax.swing.JFrame {
                                 .addGap(130, 130, 130)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtpass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtemail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtans, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtphno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                     .addGap(149, 149, 149)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -186,27 +193,27 @@ public class SignUp extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtage, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
                 .addGap(2, 2, 2)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtphno, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtans, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
@@ -251,13 +258,13 @@ public class SignUp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtnameActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
+       
+    }//GEN-LAST:event_txtemailActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        Login LoginFrame = new Login();
@@ -268,54 +275,113 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    dashboard dashboardFrame = new dashboard();  // Corrected the typo to Dashboard
-    dashboardFrame.setVisible(true);              // Makes the frame visible
-    dashboardFrame.pack();                       // Adjusts the frame size to fit its components
-    dashboardFrame.setLocationRelativeTo(null);  // Centers the frame on the screen
-    this.dispose(); 
+    if(txtname.getText().equals("")){
+        JOptionPane.showMessageDialog(this,"All Fields are required");
+        txtname.requestFocus();
+        }
+    else if(txtage.getText().equals("")){
+         JOptionPane.showMessageDialog(this,"All Fields are required");
+         txtage.requestFocus();
+    }
+    else if(txtphno.getText().equals("")){
+         JOptionPane.showMessageDialog(this,"All Fields are required");
+         txtphno.requestFocus();
+    }
+    else if(txtemail.getText().equals("")){
+         JOptionPane.showMessageDialog(this,"All Fields are required");
+         txtemail.requestFocus();
+    }
+    else if(txtpass.getText().equals("")){
+        JOptionPane.showMessageDialog(this,"All Fields are required");
+        txtpass.requestFocus();
+        }
+    else if(txtans.getText().equals("")){
+        JOptionPane.showMessageDialog(this,"All Fields are required");
+        txtans.requestFocus();
+        }
+     else{    
+    PreparedStatement pst=null;
+    Statement st=null;
+    ResultSet rs=null;
+    java.sql.Connection con=null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/movierecsystem","root","kanishka");
+           // st=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            pst=con.prepareStatement("select * from userlogin where emailid=?");
+            pst.setString(1, txtemail.getText());
+            rs=pst.executeQuery();
+            if(rs.next()){
+                JOptionPane.showMessageDialog(this,"Email ID already registered!!!");
+                txtemail.requestFocus();
+            }
+            else{
+                pst=con.prepareStatement("insert into userlogin (name,age,contactno,favmovie,emailid,password)values(?,?,?,?,?,?)");
+                pst.setString(1, txtname.getText());
+                pst.setString(2, txtage.getText());
+                pst.setString(3, txtphno.getText());
+                pst.setString(4, txtans.getText());
+                pst.setString(5, txtemail.getText().toLowerCase());
+                pst.setString(6, txtpass.getText());
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Registered Successfully\nLogin Now");
+                Login LoginFrame = new Login();
+                LoginFrame.setVisible(true);
+                LoginFrame.pack();
+                LoginFrame.setLocationRelativeTo(null); 
+                this.dispose();
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+           //Logger.getLogger(Record.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtageActionPerformed
    
         
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtageActionPerformed
 
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtphnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtphnoActionPerformed
 
-    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+    private void txtageKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtageKeyTyped
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
-            JOptionPane.showMessageDialog(this,"Only Digits Are Allowed!"); // Ignore the input if it's a digit
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField3KeyTyped
+            evt.consume(); // Prevent non-digit characters
+            JOptionPane.showMessageDialog(this, "Please enter only numbers in the Age field.");
+      }
+    }//GEN-LAST:event_txtageKeyTyped
 
-    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
-        char d = evt.getKeyChar();
-        if (!Character.isDigit(d)) {
-            JOptionPane.showMessageDialog(this,"Only Digits Are Allowed!"); // Ignore the input if it's not a digit
-            evt.consume();
-        }       
-    }//GEN-LAST:event_jTextField4KeyTyped
+    private void txtphnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtphnoKeyTyped
+         char d = evt.getKeyChar();
+         if (!Character.isDigit(d)) {
+             evt.consume(); // Prevent non-digit characters
+             JOptionPane.showMessageDialog(this, "Please enter only numbers in the Contact no. field.");
+    }
+             
+    }//GEN-LAST:event_txtphnoKeyTyped
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-        char e = evt.getKeyChar();
-        if (Character.isDigit(e)) {
-            JOptionPane.showMessageDialog(this,"Only Alphabets Are Allowed!"); // Ignore the input if it's not a digit
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField1KeyTyped
+    private void txtnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnameKeyTyped
+      char e = evt.getKeyChar();
+      if (Character.isDigit(e)) {
+          evt.consume(); // Prevent non-digit characters
+          JOptionPane.showMessageDialog(this, "Please enter only Text in the Name field.");
+    }
+        
+    }//GEN-LAST:event_txtnameKeyTyped
 
-    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+    private void txtansKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtansKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5KeyTyped
+    }//GEN-LAST:event_txtansKeyTyped
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtansActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtansActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -336,11 +402,11 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txtage;
+    private javax.swing.JTextField txtans;
+    private javax.swing.JTextField txtemail;
+    private javax.swing.JTextField txtname;
+    private javax.swing.JPasswordField txtpass;
+    private javax.swing.JTextField txtphno;
     // End of variables declaration//GEN-END:variables
 }

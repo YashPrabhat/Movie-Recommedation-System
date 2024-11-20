@@ -142,11 +142,12 @@ public class dashboard extends javax.swing.JFrame {
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jButton_leftArrow, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(19, 19, 19)
                 .addComponent(slideshow, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(jButton_rightArrow, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jButton_rightArrow, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(310, 310, 310)
                 .addComponent(jLabel_heading)
@@ -164,13 +165,16 @@ public class dashboard extends javax.swing.JFrame {
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton_leftArrow)
-                            .addComponent(jButton_rightArrow))
+                        .addComponent(jButton_rightArrow)
                         .addGap(264, 264, 264))
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(slideshow, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(slideshow, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addComponent(jButton_leftArrow)))
                         .addContainerGap(29, Short.MAX_VALUE))))
         );
 
@@ -223,6 +227,11 @@ public class dashboard extends javax.swing.JFrame {
         jButton_TopImdb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/top_imdb.png"))); // NOI18N
         jButton_TopImdb.setText("  Top IMDB");
         jButton_TopImdb.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_TopImdb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_TopImdbActionPerformed(evt);
+            }
+        });
 
         jButton_Rate.setBackground(new java.awt.Color(0, 0, 0));
         jButton_Rate.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
@@ -325,11 +334,11 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_WatchlistActionPerformed
 
     private void jButton_NewRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NewRecActionPerformed
-       Recommendationpage RecFrame = new Recommendationpage();
-        RecFrame.setVisible(true);
-        RecFrame.pack();
-        RecFrame.setLocationRelativeTo(null);
-        this.dispose();
+//       Recommendationpage RecFrame = new Recommendationpage();
+//        RecFrame.setVisible(true);
+//        RecFrame.pack();
+//        RecFrame.setLocationRelativeTo(null);
+//        this.dispose();
     }//GEN-LAST:event_jButton_NewRecActionPerformed
 
     private void jButton_leftArrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_leftArrowActionPerformed
@@ -383,6 +392,14 @@ public class dashboard extends javax.swing.JFrame {
         show(position);
         
     }//GEN-LAST:event_jButton_leftArrowMousePressed
+
+    private void jButton_TopImdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TopImdbActionPerformed
+        topImdb topImdbFrame = new topImdb();
+        topImdbFrame.setVisible(true);
+        topImdbFrame.pack();
+        topImdbFrame.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton_TopImdbActionPerformed
 
 
     public static void main(String args[]) {
