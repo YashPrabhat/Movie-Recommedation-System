@@ -272,7 +272,7 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_ProfileActionPerformed
 
     private void jButton_WatchlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_WatchlistActionPerformed
-        Watchlist watchlistFrame = new Watchlist();
+        WatchList watchlistFrame = new WatchList();
         watchlistFrame.setVisible(true);
         watchlistFrame.pack();
         watchlistFrame.setLocationRelativeTo(null);
