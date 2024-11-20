@@ -4,7 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/AnniWork/WelcomePage.java</file>
-            <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/AnniWork/Watchlist.java</file>
+            <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/Connection/tables.java</file>
             <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/AnniWork/Login.java</file>
             <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/AnniWork/Start.java</file>
             <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/AnniWork/dashboard.java</file>
@@ -12,6 +12,9 @@
             <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/AnniWork/UserInfo1.java</file>
             <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/AnniWork/Profile.java</file>
             <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/loginandsignup/SignUp.java</file>
+            <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/Connection/ConnectionProvider.java</file>
+            <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/Connection/DbOperations.java</file>
+            <file>file:/C:/Users/alokk/OneDrive/Documents/MovieRecommendationSystem/src/AnniWork/WatchList.java</file>
         </group>
     </open-files>
 </project-private>
