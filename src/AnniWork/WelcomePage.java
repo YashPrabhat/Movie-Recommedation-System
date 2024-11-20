@@ -30,7 +30,7 @@ public class WelcomePage extends javax.swing.JFrame {
         Header.setBackground(new java.awt.Color(0, 0, 0));
 
         Heading.setBackground(new java.awt.Color(0, 0, 0));
-        Heading.setFont(new java.awt.Font("Stencil", 0, 43)); // NOI18N
+        Heading.setFont(new java.awt.Font("Stencil", 0, 48)); // NOI18N
         Heading.setForeground(new java.awt.Color(255, 255, 102));
         Heading.setText("MOVIE  RECOMMENDATION  SYSTEM");
 
@@ -38,20 +38,20 @@ public class WelcomePage extends javax.swing.JFrame {
         Header.setLayout(HeaderLayout);
         HeaderLayout.setHorizontalGroup(
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Heading, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
+            .addGroup(HeaderLayout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(Heading, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         HeaderLayout.setVerticalGroup(
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(Heading)
-                .addContainerGap())
+                .addGap(24, 24, 24))
         );
 
-        getContentPane().add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 90));
+        getContentPane().add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 110));
 
         GetStarted.setBackground(new java.awt.Color(147, 0, 0));
         GetStarted.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
@@ -63,16 +63,16 @@ public class WelcomePage extends javax.swing.JFrame {
                 GetStartedActionPerformed(evt);
             }
         });
-        getContentPane().add(GetStarted, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 230, 50));
+        getContentPane().add(GetStarted, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 230, 50));
 
         TagLine.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         TagLine.setForeground(new java.awt.Color(255, 255, 255));
         TagLine.setText("Let us guide you to your next favorite story on screen.");
-        getContentPane().add(TagLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 660, 30));
+        getContentPane().add(TagLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 660, 30));
 
         jLabel1.setFont(new java.awt.Font("Stencil", 0, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel1.setText("1000+                                        500+                                          10+  ");
+        jLabel1.setText("500+                                         100+                                          10+  ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, 1040, 30));
 
         jLabel2.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
@@ -81,7 +81,7 @@ public class WelcomePage extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, 990, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1099, 620));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1099, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

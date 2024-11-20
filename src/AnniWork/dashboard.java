@@ -1,14 +1,32 @@
 
 package AnniWork;
-
-
+import javax.swing.ImageIcon;
+import java.awt.Image;
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class dashboard extends javax.swing.JFrame {
 
 
     public dashboard() {
         initComponents();
-      
+        show(position);
     }
+    int position=0;
+    public String[] takeimage() {
+    File f = new File(getClass().getResource("/posters").getFile());
+    String[] Images = f.list();
+    return Images;
+}
+
+    public void show(int index) {
+        String[] Images = takeimage();
+        String img = Images[index];
+        ImageIcon icon = new ImageIcon(getClass().getResource("/posters/" + img));
+        Image image = icon.getImage().getScaledInstance(slideshow.getWidth(), slideshow.getHeight(), Image.SCALE_SMOOTH);
+        slideshow.setIcon(new ImageIcon(image));
+    }
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -24,6 +42,7 @@ public class dashboard extends javax.swing.JFrame {
         jLabel_fire = new javax.swing.JLabel();
         jButton_leftArrow = new javax.swing.JButton();
         jButton_rightArrow = new javax.swing.JButton();
+        slideshow = new javax.swing.JLabel();
         jButton_Profile = new javax.swing.JButton();
         jButton_Watchlist = new javax.swing.JButton();
         jButton_NewRec = new javax.swing.JButton();
@@ -84,6 +103,11 @@ public class dashboard extends javax.swing.JFrame {
         jButton_leftArrow.setForeground(new java.awt.Color(255, 255, 255));
         jButton_leftArrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left_arrow.png"))); // NOI18N
         jButton_leftArrow.setBorder(null);
+        jButton_leftArrow.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton_leftArrowMousePressed(evt);
+            }
+        });
         jButton_leftArrow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_leftArrowActionPerformed(evt);
@@ -94,26 +118,39 @@ public class dashboard extends javax.swing.JFrame {
         jButton_rightArrow.setForeground(new java.awt.Color(255, 255, 255));
         jButton_rightArrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/right_arrow.png"))); // NOI18N
         jButton_rightArrow.setBorder(null);
+        jButton_rightArrow.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_rightArrowMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton_rightArrowMousePressed(evt);
+            }
+        });
         jButton_rightArrow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_rightArrowActionPerformed(evt);
             }
         });
 
+        slideshow.setText("jLabel1");
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton_leftArrow, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(slideshow, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jButton_rightArrow, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(310, 310, 310)
                 .addComponent(jLabel_heading)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_fire, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(282, Short.MAX_VALUE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addComponent(jButton_leftArrow, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_rightArrow, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,11 +159,20 @@ public class dashboard extends javax.swing.JFrame {
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_fire)
                     .addComponent(jLabel_heading))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_leftArrow)
-                    .addComponent(jButton_rightArrow))
-                .addGap(264, 264, 264))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton_rightArrow)
+                        .addGap(264, 264, 264))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(slideshow, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addComponent(jButton_leftArrow)))
+                        .addContainerGap(29, Short.MAX_VALUE))))
         );
 
         jButton_Profile.setBackground(new java.awt.Color(0, 0, 0));
@@ -178,6 +224,11 @@ public class dashboard extends javax.swing.JFrame {
         jButton_TopImdb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/top_imdb.png"))); // NOI18N
         jButton_TopImdb.setText("  Top IMDB");
         jButton_TopImdb.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_TopImdb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_TopImdbActionPerformed(evt);
+            }
+        });
 
         jButton_Rate.setBackground(new java.awt.Color(0, 0, 0));
         jButton_Rate.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
@@ -264,11 +315,11 @@ public class dashboard extends javax.swing.JFrame {
 
    
     private void jButton_ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ProfileActionPerformed
-         Profile ProfileFrame = new Profile();
-         ProfileFrame.setVisible(true);
-         ProfileFrame.pack();
-         ProfileFrame.setLocationRelativeTo(null);
-         this.dispose();
+        UserInfo UserInfoFrame = new UserInfo();
+        UserInfoFrame.setVisible(true);
+        UserInfoFrame.pack();
+        UserInfoFrame.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_jButton_ProfileActionPerformed
 
     private void jButton_WatchlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_WatchlistActionPerformed
@@ -280,7 +331,11 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_WatchlistActionPerformed
 
     private void jButton_NewRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NewRecActionPerformed
-        // TODO add your handling code here:
+//       Recommendationpage RecFrame = new Recommendationpage();
+//        RecFrame.setVisible(true);
+//        RecFrame.pack();
+//        RecFrame.setLocationRelativeTo(null);
+//        this.dispose();
     }//GEN-LAST:event_jButton_NewRecActionPerformed
 
     private void jButton_leftArrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_leftArrowActionPerformed
@@ -290,6 +345,58 @@ public class dashboard extends javax.swing.JFrame {
     private void jButton_rightArrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_rightArrowActionPerformed
       
     }//GEN-LAST:event_jButton_rightArrowActionPerformed
+
+    private void jButton_rightArrowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_rightArrowMouseClicked
+    
+    }//GEN-LAST:event_jButton_rightArrowMouseClicked
+
+    private void jButton_rightArrowMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_rightArrowMousePressed
+        
+         new Thread();
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        int p=this.slideshow.getX();
+        if (p > -1) 
+        {
+            Animacion.Animacion.mover_izquierda(1200, 85, 1, 2, slideshow);
+        }
+        position = position + 1;
+        if (position >= takeimage().length) {
+            position = 0;
+        }
+        show(position);
+    }//GEN-LAST:event_jButton_rightArrowMousePressed
+
+    private void jButton_leftArrowMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_leftArrowMousePressed
+        new Thread();
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        int p=this.slideshow.getX();
+        if (p > -1) 
+        {
+            Animacion.Animacion.mover_izquierda(1200, 85, 1, 2, slideshow);
+        }
+        position = position - 1;
+        if (position <0 ) {
+            position = takeimage().length - 1;
+        }
+        show(position);
+        
+    }//GEN-LAST:event_jButton_leftArrowMousePressed
+
+    private void jButton_TopImdbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TopImdbActionPerformed
+        topImdb topImdbFrame = new topImdb();
+        topImdbFrame.setVisible(true);
+        topImdbFrame.pack();
+        topImdbFrame.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton_TopImdbActionPerformed
 
 
     public static void main(String args[]) {
@@ -341,5 +448,6 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel slideshow;
     // End of variables declaration//GEN-END:variables
 }
