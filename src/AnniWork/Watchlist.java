@@ -1,4 +1,3 @@
-
 package AnniWork;
 
 import javax.swing.DefaultListModel;
@@ -183,11 +182,6 @@ public class WatchList extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 51));
         jButton1.setText("BACK TO DASHBOARD");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -306,15 +300,6 @@ public class WatchList extends javax.swing.JFrame {
     this.dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        dashboard dashboard = new dashboard();
-       dashboard.setVisible(true);
-       dashboard.pack();
-       dashboard.setLocationRelativeTo(null);  // Centers the frame on the screen
-       this.dispose();
-    }//GEN-LAST:event_jButton1MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -340,8 +325,6 @@ public class WatchList extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(WatchList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
