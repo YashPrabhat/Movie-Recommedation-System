@@ -2,16 +2,139 @@ package AnniWork;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class WatchList extends javax.swing.JFrame {
 
   
     private DefaultListModel<String> watchlistModel = new DefaultListModel<>();
-    public WatchList() {
+    static private String loggedInEmail;
+    
+    public WatchList(String loggedInEmail) {
         initComponents();
-        
+        this.loggedInEmail = loggedInEmail;  // Store logged-in email
         watchlistJList.setModel(watchlistModel);
+        
+        loadWatchlistFromDatabase();
+        
+       
+
     }
+    
+    // Load user's watchlist from the database based on the email
+    private void loadWatchlistFromDatabase() {
+        
+        try (Connection conn = Connect.ConnectToDB()) {
+            String query = "SELECT movie_name FROM watchlist WHERE email = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, loggedInEmail);
+                ResultSet rs = stmt.executeQuery();
+                
+                // Clear any existing items
+                watchlistModel.clear();
+
+                while (rs.next()) {
+                    String movie = rs.getString("movie_name");
+                    watchlistModel.addElement(movie);  // Add movie to the list
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error loading watchlist: " + ex.getMessage());
+        }
+    }
+    
+    private void addMovieToWatchlist(String movieName) {
+    if (movieName == null || movieName.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Movie name cannot be empty.");
+        return;
+    }
+
+    try (Connection conn = Connect.ConnectToDB()) {
+       
+        String checkQuery = "SELECT COUNT(*) FROM watchlist WHERE email = ? AND movie_name = ?";
+        try (PreparedStatement checkStmt = conn.prepareStatement(checkQuery)) {
+            checkStmt.setString(1, loggedInEmail);
+            checkStmt.setString(2, movieName);
+            ResultSet rs = checkStmt.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                JOptionPane.showMessageDialog(this, "This movie is already in your watchlist.");
+                return;
+            }
+        }
+
+        // Insert the movie into the watchlist
+        String query = "INSERT INTO watchlist (email, movie_name) VALUES (?, ?)";
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, loggedInEmail);
+            stmt.setString(2, movieName);
+            stmt.executeUpdate();
+            watchlistModel.addElement(movieName); // Add movie to the JList
+            JOptionPane.showMessageDialog(this, "Movie added to watchlist!");
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(this, "Error adding movie: " + ex.getMessage());
+    }
+}
+
+     
+    // Remove movie from watchlist
+    private void removeMovieFromWatchlist(String movieName) {
+        try (Connection conn = Connect.ConnectToDB()) {
+            String query = "DELETE FROM watchlist WHERE email = ? AND movie_name = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, loggedInEmail);
+                stmt.setString(2, movieName);
+                stmt.executeUpdate();
+                watchlistModel.removeElement(movieName);  // Remove from JList
+                JOptionPane.showMessageDialog(this, "Movie removed from watchlist.");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error removing movie: " + ex.getMessage());
+        }
+    }
+    
+    
+   private void searchMovies(String searchQuery) {
+    String[] genreTables = {"action", "adventure", "drama", "horror", "scifi"};
+    
+    try (Connection conn = Connect.ConnectToDB()) {
+        
+        jComboBox.removeAllItems();
+        
+        // Loop through each genre table
+        for (String table : genreTables) {
+            String query = "SELECT movie_name FROM " + table + " WHERE movie_name LIKE ?";
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, "%" + searchQuery + "%");  // Search query for matching movie names
+                ResultSet rs = stmt.executeQuery();
+
+                while (rs.next()) {
+                    String movie = rs.getString("movie_name");
+                    jComboBox.addItem(movie); // Add movie to ComboBox suggestions
+                }
+            }
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(this, "Error searching for movies: " + ex.getMessage());
+    }
+}
+
+    
+   
+private boolean isMovieAlreadyInComboBox(String movie) {
+    for (int i = 0; i < jComboBox.getItemCount(); i++) {
+        if (jComboBox.getItemAt(i).equals(movie)) {
+            return true; // Movie already exists
+        }
+    }
+    return false; // Movie not found
+}
+
 
   
     @SuppressWarnings("unchecked")
@@ -33,6 +156,7 @@ public class WatchList extends javax.swing.JFrame {
         SearchButton = new javax.swing.JButton();
         AddButton = new javax.swing.JButton();
         RemoveButton = new javax.swing.JButton();
+        jComboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,7 +214,7 @@ public class WatchList extends javax.swing.JFrame {
         empty.setText("This list is empty");
 
         watchlistJList.setBackground(new java.awt.Color(153, 153, 153));
-        watchlistJList.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        watchlistJList.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         jScrollPane1.setViewportView(watchlistJList);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -124,7 +248,7 @@ public class WatchList extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
-        searchtxt.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        searchtxt.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         searchtxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         searchtxt.setText("Type here..");
         searchtxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
@@ -141,6 +265,9 @@ public class WatchList extends javax.swing.JFrame {
         searchtxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 searchtxtKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchtxtKeyReleased(evt);
             }
         });
 
@@ -177,6 +304,18 @@ public class WatchList extends javax.swing.JFrame {
             }
         });
 
+        jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No result yet" }));
+        jComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxItemStateChanged(evt);
+            }
+        });
+        jComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxActionPerformed(evt);
+            }
+        });
+
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 51));
@@ -198,18 +337,20 @@ public class WatchList extends javax.swing.JFrame {
                         .addGap(321, 321, 321)
                         .addComponent(searchicon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(searchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53)
+                        .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(AddButton, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                                .addComponent(RemoveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(AddButton, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(RemoveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(searchtxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -219,15 +360,17 @@ public class WatchList extends javax.swing.JFrame {
                 .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchicon, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addGap(14, 14, 14)
                 .addComponent(searchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
                 .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(RemoveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 130, 330, 520));
@@ -292,13 +435,39 @@ public class WatchList extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RemoveButtonActionPerformed
 
+    private void jComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxActionPerformed
+        // TODO add your handling code here:
+        // Set the selected movie from ComboBox to the search text field
+    String selectedMovie = (String) jComboBox.getSelectedItem();
+    if (selectedMovie != null) {
+        searchtxt.setText(selectedMovie);  // Set selected movie in search text field
+        jComboBox.removeAllItems(); // Optionally clear ComboBox after selection
+    }
+    }//GEN-LAST:event_jComboBoxActionPerformed
+
+    private void searchtxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchtxtKeyReleased
+        // TODO add your handling code here:
+       String searchQuery = searchtxt.getText().trim();
+    if (!searchQuery.isEmpty()) {
+        searchMovies(searchQuery); // Search movies based on user input
+    } else {
+        jComboBox.removeAllItems(); // Clear dropdown if search query is empty
+    }
+    }//GEN-LAST:event_searchtxtKeyReleased
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dashboard dashboardFrame = new dashboard();  // Corrected the typo to Dashboard
+        // TODO add your handling code here:
+        dashboard dashboardFrame = new dashboard(loggedInEmail);  // Corrected the typo to Dashboard
         dashboardFrame.setVisible(true);              // Makes the frame visible
         dashboardFrame.pack();                       // Adjusts the frame size to fit its components
         dashboardFrame.setLocationRelativeTo(null);  // Centers the frame on the screen
     this.dispose(); 
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -331,7 +500,7 @@ public class WatchList extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new WatchList().setVisible(true);
+                new WatchList(loggedInEmail).setVisible(true);
             }
         });
     }
@@ -343,6 +512,7 @@ public class WatchList extends javax.swing.JFrame {
     private javax.swing.JButton SearchButton;
     private javax.swing.JLabel empty;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
