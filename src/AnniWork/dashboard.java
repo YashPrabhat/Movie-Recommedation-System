@@ -7,7 +7,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 public class dashboard extends javax.swing.JFrame {
 
+    
+    private String loggedInEmail;  // Store the logged-in email
 
+
+     public dashboard(String loggedInEmail) {
+        initComponents();  // Initialize the components
+        this.loggedInEmail = loggedInEmail;  // Store the logged-in email
+    }
     public dashboard() {
         initComponents();
         show(position);
@@ -315,7 +322,7 @@ public class dashboard extends javax.swing.JFrame {
 
    
     private void jButton_ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ProfileActionPerformed
-        UserInfo UserInfoFrame = new UserInfo();
+        UserInfo UserInfoFrame = new UserInfo(loggedInEmail);
         UserInfoFrame.setVisible(true);
         UserInfoFrame.pack();
         UserInfoFrame.setLocationRelativeTo(null);
@@ -323,7 +330,7 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_ProfileActionPerformed
 
     private void jButton_WatchlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_WatchlistActionPerformed
-        WatchList watchlistFrame = new WatchList();
+        WatchList watchlistFrame = new WatchList(loggedInEmail);
         watchlistFrame.setVisible(true);
         watchlistFrame.pack();
         watchlistFrame.setLocationRelativeTo(null);
@@ -365,7 +372,7 @@ public class dashboard extends javax.swing.JFrame {
         }
         position = position + 1;
         if (position >= takeimage().length) {
-            position = 0;
+            position = 0; 
         }
         show(position);
     }//GEN-LAST:event_jButton_rightArrowMousePressed

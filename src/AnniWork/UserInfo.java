@@ -1,5 +1,13 @@
 package AnniWork;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alokk
@@ -9,7 +17,18 @@ public class UserInfo extends javax.swing.JFrame {
     /**
      * Creates new form UserIcon
      */
+    private String loggedInEmail;  // Store the logged-in email
     
+    String emailPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+    String phonePattern = "^[0-9]{10}$"; // For a 10-digit phone number
+
+
+    
+    public UserInfo(String loggedInEmail) {
+        initComponents();  // Initialize the components
+        this.loggedInEmail = loggedInEmail;  // Store the logged-in email
+        showUserInfo(loggedInEmail);  // Fetch and display user details based on the email
+    }
     
     public UserInfo() {
         initComponents();
@@ -25,6 +44,41 @@ public class UserInfo extends javax.swing.JFrame {
         
         
     }
+    
+    private void showUserInfo(String email) {
+    try {
+       
+        Connection con = Connect.ConnectToDB();  
+        PreparedStatement pst = con.prepareStatement("SELECT * FROM userlogin WHERE emailid=?");
+        pst.setString(1, email);  
+        ResultSet rs = pst.executeQuery();  
+        
+        if (rs.next()) {
+            // Populate the text fields with user information
+            Nametxt.setText(rs.getString("name"));
+            Nametxt1.setText(rs.getString("age"));
+            Numtxt.setText(rs.getString("contactno"));
+            Mailtxt.setText(rs.getString("emailid"));
+            EditMailtxt.setVisible(false);
+            EditNametxt.setVisible(false);
+            EditNumtxt.setVisible(false);
+            ConfirmPassword.setVisible(false);
+            NewPassword.setVisible(false);
+            ChangePass_Button.setVisible(false);
+            EditBackButton.setVisible(false);
+            EditProfileButton.setVisible(false);
+            BackButton.setVisible(false);
+            Nametxt.setEditable(false);
+            Nametxt1.setEditable(false);
+            Numtxt.setEditable(false);
+            Mailtxt.setEditable(false);
+        }
+
+    } catch (SQLException ex) {
+        Logger.getLogger(UserInfo.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -410,7 +464,53 @@ public class UserInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_EditNametxtActionPerformed
 
     private void EditProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditProfileButtonActionPerformed
-        // TODO add your handling code here:
+                                                
+   
+   
+    String email = EditMailtxt.getText();
+    String phone = EditNumtxt.getText();
+    
+    
+    if (!email.matches(emailPattern)) {
+        JOptionPane.showMessageDialog(this, "Invalid email format.");
+        return;  
+    }
+    
+    if (!phone.matches(phonePattern)) {
+        JOptionPane.showMessageDialog(this, "Phone number must be 10 digits.");
+        return;  
+    }
+
+    
+    try {
+        Connection con = Connect.ConnectToDB();
+        PreparedStatement pst = con.prepareStatement("UPDATE userlogin SET name=?, emailid=?, contactno=? WHERE emailid=?");
+        pst.setString(1, EditNametxt.getText());
+        pst.setString(2, email);  // Update the email
+        pst.setString(3, phone);  // Update the phone number
+        pst.setString(4, loggedInEmail);  // Find the user by logged-in email
+        
+        int rowsAffected = pst.executeUpdate();  // Execute update
+        
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(this, "Profile updated successfully.");
+            
+            
+            Nametxt.setText(EditNametxt.getText());
+            Mailtxt.setText(EditMailtxt.getText());
+            Numtxt.setText(EditNumtxt.getText());
+            
+        UserInfoPanel.setVisible(true);
+        ChangePassPanel.setVisible(false);
+        EditPanel.setVisible(false);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(UserInfo.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+
+
+
     }//GEN-LAST:event_EditProfileButtonActionPerformed
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
@@ -449,12 +549,12 @@ public class UserInfo extends javax.swing.JFrame {
        ForgetPassword ForgetPasswordFrame = new ForgetPassword();
        ForgetPasswordFrame.setVisible(true);
        ForgetPasswordFrame.pack();
-       ForgetPasswordFrame.setLocationRelativeTo(null);  // Centers the frame on the screen
+       ForgetPasswordFrame.setLocationRelativeTo(null);  
        this.dispose();
     }//GEN-LAST:event_ChangeButtonActionPerformed
 
     private void DashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardButtonActionPerformed
-        dashboard dashboardFrame = new dashboard();  // Corrected the typo to Dashboard
+        dashboard dashboardFrame = new dashboard(loggedInEmail);  // Corrected the typo to Dashboard
         dashboardFrame.setVisible(true);              // Makes the frame visible
         dashboardFrame.pack();                       // Adjusts the frame size to fit its components
         dashboardFrame.setLocationRelativeTo(null);  // Centers the frame on the screen

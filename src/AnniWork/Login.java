@@ -219,7 +219,12 @@ public class Login extends javax.swing.JFrame {
             pst.setString(2, password.getText());
             rs=pst.executeQuery();
             if(rs.next()){
-                dashboard dashboardFrame = new dashboard();  // Create an instance of the dashboard class
+                
+                // Capture the email entered by the user when login is successful
+                String loggedInEmail = email.getText(); 
+                
+                dashboard dashboardFrame = new dashboard(loggedInEmail);  // Create an instance of the dashboard class
+               
                 dashboardFrame.setVisible(true);             // Make the dashboard frame visible
                 dashboardFrame.pack();                       // Adjust the frame size to fit its components
                 dashboardFrame.setLocationRelativeTo(null);  // Center the dashboard on the screen

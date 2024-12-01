@@ -11,6 +11,10 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 public class SignUp extends javax.swing.JFrame {
+    
+    private static final String EmailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+
+    private static final String MobilePattern = "^[0-9]{10}$";
 
 
     public SignUp() {
@@ -299,6 +303,14 @@ public class SignUp extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this,"All Fields are required");
         txtans.requestFocus();
         }
+    else if (!txtemail.getText().matches(EmailPattern)) { // Email validation block
+    JOptionPane.showMessageDialog(this, "Invalid email format");
+    txtemail.requestFocus();
+    }
+    else if (!txtphno.getText().matches(MobilePattern)) { // Mobile number validation block
+    JOptionPane.showMessageDialog(this, "Invalid mobile number. Must be 10 digits.");
+    txtphno.requestFocus();
+    }
      else{    
     PreparedStatement pst=null;
     Statement st=null;
@@ -306,7 +318,7 @@ public class SignUp extends javax.swing.JFrame {
     java.sql.Connection con=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/movierecsystem","root","kanishka");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/movierecsystem","root","admin");
            // st=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
             pst=con.prepareStatement("select * from userlogin where emailid=?");
             pst.setString(1, txtemail.getText());
@@ -359,7 +371,7 @@ public class SignUp extends javax.swing.JFrame {
 
     private void txtphnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtphnoKeyTyped
          char d = evt.getKeyChar();
-         if (!Character.isDigit(d)) {
+         if (!Character.isDigit(d) && d != KeyEvent.VK_BACK_SPACE) {
              evt.consume(); // Prevent non-digit characters
              JOptionPane.showMessageDialog(this, "Please enter only numbers in the Contact no. field.");
     }
