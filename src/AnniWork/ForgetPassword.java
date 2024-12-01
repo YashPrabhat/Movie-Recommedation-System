@@ -19,7 +19,7 @@ public class ForgetPassword extends javax.swing.JFrame {
    
     public ForgetPassword() {
         initComponents();
-       jLabel3.setVisible(false);
+       
     }
     
     
@@ -293,7 +293,7 @@ public class ForgetPassword extends javax.swing.JFrame {
             txtnewpass.setEnabled(true);
             txtconpass.setEnabled(true);
             updatepass.setEnabled(true);  
-            jLabel3.setVisible(true);
+            
             JOptionPane.showMessageDialog(this, "User verified. You can now update your password.");
 
         } else {
