@@ -12,7 +12,7 @@ public class Connect {
      static Connection con=null;
     public static Connection ConnectToDB() {
         try {
-             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/MovieRecSystem","root","kanishka");
+             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/movierecSystem","root","kanishka");
         } catch (SQLException ex) {
             Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
         }

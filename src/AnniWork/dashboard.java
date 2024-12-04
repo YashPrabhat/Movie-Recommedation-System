@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 
 public class dashboard extends javax.swing.JFrame {
-
+    String loggedInEmail;
 
     public dashboard() {
         initComponents();
@@ -331,19 +331,20 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_ProfileActionPerformed
 
     private void jButton_WatchlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_WatchlistActionPerformed
-        WatchList watchlistFrame = new WatchList();
-        watchlistFrame.setVisible(true);
-        watchlistFrame.pack();
-        watchlistFrame.setLocationRelativeTo(null);
-        this.dispose();
+//        String loggedInEmail;
+//        WatchList watchListFrame = new WatchList(loggedInEmail);
+//        watchListFrame.setVisible(true);
+//        watchListFrame.pack();
+//        watchListFrame.setLocationRelativeTo(null);
+//        this.dispose();
     }//GEN-LAST:event_jButton_WatchlistActionPerformed
 
     private void jButton_NewRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NewRecActionPerformed
-//       Recommendationpage RecFrame = new Recommendationpage();
-//        RecFrame.setVisible(true);
-//        RecFrame.pack();
-//        RecFrame.setLocationRelativeTo(null);
-//        this.dispose();
+        recommodationpage RecFrame = new recommodationpage();
+        RecFrame.setVisible(true);
+        RecFrame.pack();
+        RecFrame.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_jButton_NewRecActionPerformed
 
     private void jButton_leftArrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_leftArrowActionPerformed

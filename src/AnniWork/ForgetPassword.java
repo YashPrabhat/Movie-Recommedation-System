@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
 
 /**
  *
@@ -18,7 +19,10 @@ public class ForgetPassword extends javax.swing.JFrame {
    
     public ForgetPassword() {
         initComponents();
+       
     }
+    
+    
     PreparedStatement pst;
     Statement st=null;
     ResultSet rs;
@@ -41,6 +45,7 @@ public class ForgetPassword extends javax.swing.JFrame {
         txtconpass = new javax.swing.JPasswordField();
         favmovie = new javax.swing.JLabel();
         txtemail = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1100, 650));
@@ -144,8 +149,10 @@ public class ForgetPassword extends javax.swing.JFrame {
                                 .addComponent(txtconpass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(txtareaLayout.createSequentialGroup()
                         .addGap(180, 180, 180)
-                        .addComponent(verify, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addComponent(verify, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         txtareaLayout.setVerticalGroup(
             txtareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +168,9 @@ public class ForgetPassword extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtfavmovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(verify, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(txtareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(verify, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addComponent(newpass)
                 .addGap(18, 18, 18)
@@ -217,31 +226,82 @@ public class ForgetPassword extends javax.swing.JFrame {
 
     private void updatepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatepassActionPerformed
         // TODO add your handling code here:
+    Connection con = null;
+    PreparedStatement pst = null;
+    
+    try {
+        String newPassword = String.valueOf(txtnewpass.getPassword());  
+        String confirmPassword = String.valueOf(txtconpass.getPassword()); 
+        
+       
+        if (!newPassword.equals(confirmPassword)) {
+            JOptionPane.showMessageDialog(this, "Passwords do not match.");
+            return;
+        }
+        
+        // SQL query to update the user's password
+        String updateQuery = "UPDATE userlogin SET password=? WHERE emailid=?";
+        con = Connect.ConnectToDB();  
+        
+        pst = con.prepareStatement(updateQuery);
+        pst.setString(1, newPassword);  // Set the new password
+        pst.setString(2, txtemail.getText());  // Set the email
+
+        int updatedRows = pst.executeUpdate();
+        if (updatedRows > 0) {
+            JOptionPane.showMessageDialog(this, "Password updated successfully.");
+            txtnewpass.setText("");
+            txtconpass.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error updating password.");
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "An error occurred while updating the password.");
+    } finally {
+        try {
+            if (pst != null) pst.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     }//GEN-LAST:event_updatepassActionPerformed
 
     private void verifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verifyActionPerformed
-         java.sql.Connection con = null;
-        java.sql.PreparedStatement pst = null;
-        java.sql.ResultSet rs = null;
+        
+    java.sql.Connection con = null;
+    java.sql.PreparedStatement pst = null;
+    java.sql.ResultSet rs = null;
+    
     try {
+        
+        con = Connect.ConnectToDB();  
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movierecsystem", "root", "kanishka");
-
-        String query = "SELECT * FROM movierecsystem.userlogin WHERE emailid=? AND favmovie=?";
+        // SQL query to verify the user based on email and favorite movie
+        String query = "SELECT * FROM userlogin WHERE emailid=? AND favmovie=?";
+        System.out.println(query);
         pst = con.prepareStatement(query);
-        pst.setString(1, email.getText());
-        pst.setString(2, favmovie.getText());
+        pst.setString(1, txtemail.getText()); 
+        pst.setString(2, txtfavmovie.getText());  
 
         rs = pst.executeQuery();
+
+        // If the user is found in the database
         if (rs.next()) {
-            txtnewpass.setText(rs.getString("password_column_name")); // Replace with actual column name
+            
+            txtnewpass.setEnabled(true);
+            txtconpass.setEnabled(true);
+            updatepass.setEnabled(true);  
+            
+            JOptionPane.showMessageDialog(this, "User verified. You can now update your password.");
+
         } else {
-            JOptionPane.showMessageDialog(this, "Email ID and Security Answer are wrong.");
+            JOptionPane.showMessageDialog(this, "Email ID and/or Favorite Movie are incorrect.");
             txtconpass.setText("");
             txtnewpass.setText("");
         }
-    } catch (ClassNotFoundException | SQLException ex) {
+    } catch (SQLException ex) {
         ex.printStackTrace();
         JOptionPane.showMessageDialog(this, "An error occurred while verifying your details.");
     } finally {
@@ -252,8 +312,7 @@ public class ForgetPassword extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    
-} 
+    }
     }//GEN-LAST:event_verifyActionPerformed
 
 
@@ -272,6 +331,7 @@ public class ForgetPassword extends javax.swing.JFrame {
     private javax.swing.JLabel favmovie;
     private javax.swing.JLabel heading;
     private javax.swing.JPanel image;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton loginpage;
     private javax.swing.JLabel newpass;

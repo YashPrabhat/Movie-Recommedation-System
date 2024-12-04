@@ -3,16 +3,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package AnniWork;
-
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author aniru
  */
 public class topImdb extends javax.swing.JFrame {
+public void openWebpage(String url) {
+    try {
+        Desktop desktop = Desktop.getDesktop();
+        URI uri = new URI(url);
+        desktop.browse(uri);
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(null, "Error opening webpage: " + e.getMessage());
+        e.printStackTrace();
+    } catch (URISyntaxException e) {
+        JOptionPane.showMessageDialog(null, "Invalid URL: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
 
-    /**
-     * Creates new form topImdb
-     */
     public topImdb() {
         initComponents();
     }
@@ -60,33 +79,83 @@ public class topImdb extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Poster2/the-godfather-poster.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Poster2/the-shawshank-redemption-poster.jpg"))); // NOI18N
         jLabel3.setText("jLabel2");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Poster2/the-godfather-part-ii-poster.jpg"))); // NOI18N
         jLabel4.setText("jLabel2");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Poster2/inception-Poster.jpg"))); // NOI18N
         jLabel5.setText("jLabel2");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Poster2/fight-club-poster.jpg"))); // NOI18N
         jLabel6.setText("jLabel2");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Poster2/12-angry-men-poster.jpg"))); // NOI18N
         jLabel7.setText("jLabel2");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Poster2/the-dark-knight-poster.jpg"))); // NOI18N
         jLabel8.setText("jLabel2");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Poster2/the-lord-of-the-rings-the-fellowship-of-the-ring-poster.jpg"))); // NOI18N
         jLabel9.setText("jLabel2");
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Poster2/the-matrix-poster.jpg"))); // NOI18N
         jLabel10.setText("jLabel2");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Poster2/se7en-poster.jpg"))); // NOI18N
         jLabel11.setText("jLabel2");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(204, 204, 204));
@@ -274,6 +343,53 @@ public class topImdb extends javax.swing.JFrame {
         dashboardFrame.setLocationRelativeTo(null);  // Centers the frame on the screen
         this.dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+//        The godfather
+        openWebpage("https://www.imdb.com/title/tt0068646/");
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        openWebpage("https://www.imdb.com/title/tt0111161/");
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        openWebpage("https://www.imdb.com/title/tt0071562/");
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        openWebpage("https://www.imdb.com/title/tt1375666/");
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        openWebpage("https://www.imdb.com/title/tt0137523/");
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        openWebpage("https://www.imdb.com/title/tt0468569/");
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+        openWebpage("https://www.imdb.com/title/tt0050083/");
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here
+        openWebpage("https://www.imdb.com/title/tt0120737/");
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        // TODO add your handling code here:
+        openWebpage("https://www.imdb.com/title/tt0133093/");
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+        openWebpage("https://www.imdb.com/title/tt0114369/");
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments
