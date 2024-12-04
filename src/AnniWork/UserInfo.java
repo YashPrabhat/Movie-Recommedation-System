@@ -18,6 +18,7 @@ public class UserInfo extends javax.swing.JFrame {
      * Creates new form UserIcon
      */
     private String loggedInEmail;  // Store the logged-in email
+    //to take data 
     
     String emailPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
     String phonePattern = "^[0-9]{10}$"; // For a 10-digit phone number
