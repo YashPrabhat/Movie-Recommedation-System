@@ -8,6 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.DocumentEvent;
+
 
 public class WatchList extends javax.swing.JFrame {
 
@@ -21,9 +25,23 @@ public class WatchList extends javax.swing.JFrame {
         watchlistJList.setModel(watchlistModel);
         
         loadWatchlistFromDatabase();
-        
-       
+        // Add DocumentListener to searchtxt (JTextField)
+    searchtxt.getDocument().addDocumentListener(new DocumentListener() {
+        @Override
+        public void insertUpdate(DocumentEvent e) {
+            searchMovies(searchtxt.getText());  // Trigger search as the user types
+        }
 
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+            searchMovies(searchtxt.getText());  // Trigger search when the user removes text
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {
+            searchMovies(searchtxt.getText());  // Handle text changes (e.g., bold, italic, etc.)
+        }
+    });
     }
     
     // Load user's watchlist from the database based on the email
@@ -100,25 +118,55 @@ public class WatchList extends javax.swing.JFrame {
     
     
    private void searchMovies(String searchQuery) {
+if (searchQuery.trim().isEmpty()) {
+        jComboBox.removeAllItems();  // Clear ComboBox if searchQuery is empty
+        return;
+    }
+
     String[] genreTables = {"action", "adventure", "drama", "horror", "scifi"};
-    
     try (Connection conn = Connect.ConnectToDB()) {
-        
-        jComboBox.removeAllItems();
-        
-        // Loop through each genre table
+        // Print the query to debug and ensure connection
+        System.out.println("Database connected successfully");
+
+        // Use invokeLater to defer the modification to the combo box
+        SwingUtilities.invokeLater(() -> {
+            jComboBox.removeAllItems();  // Clear previous suggestions in ComboBox
+            System.out.println("Clearing combo box. Searching for: " + searchQuery);
+        });
+
+        // Loop through each genre table and search for movies
         for (String table : genreTables) {
             String query = "SELECT movie_name FROM " + table + " WHERE movie_name LIKE ?";
+
+            // Debug: Print out the query being executed
+            System.out.println("Executing query: " + query);  
+
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
-                stmt.setString(1, "%" + searchQuery + "%");  // Search query for matching movie names
+                stmt.setString(1, "%" + searchQuery + "%");  // Search for movie names containing the searchQuery
                 ResultSet rs = stmt.executeQuery();
 
                 while (rs.next()) {
                     String movie = rs.getString("movie_name");
-                    jComboBox.addItem(movie); // Add movie to ComboBox suggestions
+                    System.out.println("Found movie: " + movie);
+
+                    // Use invokeLater to add items to the combo box
+                    SwingUtilities.invokeLater(() -> {
+                        // Add movie to ComboBox only if it doesn't already exist
+                        if (!isMovieAlreadyInComboBox(movie)) {
+                            jComboBox.addItem(movie); // Add movie to ComboBox suggestions
+                        }
+                    });
                 }
             }
         }
+
+        // Force refresh of jComboBox
+        SwingUtilities.invokeLater(() -> {
+            jComboBox.revalidate();
+            jComboBox.repaint();
+            System.out.println("Items in ComboBox: " + jComboBox.getItemCount());
+        });
+
     } catch (SQLException ex) {
         JOptionPane.showMessageDialog(this, "Error searching for movies: " + ex.getMessage());
     }
@@ -436,13 +484,12 @@ private boolean isMovieAlreadyInComboBox(String movie) {
     }//GEN-LAST:event_RemoveButtonActionPerformed
 
     private void jComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxActionPerformed
-        // TODO add your handling code here:
-        // Set the selected movie from ComboBox to the search text field
-    String selectedMovie = (String) jComboBox.getSelectedItem();
-    if (selectedMovie != null) {
-        searchtxt.setText(selectedMovie);  // Set selected movie in search text field
-        jComboBox.removeAllItems(); // Optionally clear ComboBox after selection
-    }
+       // TODO add your handling code here:
+        String selectedMovie = (String) jComboBox.getSelectedItem();
+        if (selectedMovie != null) {
+            searchtxt.setText(selectedMovie);  // Set selected movie in search text field
+            jComboBox.removeAllItems(); // Optionally clear ComboBox after selection
+        }
     }//GEN-LAST:event_jComboBoxActionPerformed
 
     private void searchtxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchtxtKeyReleased
